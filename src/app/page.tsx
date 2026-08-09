@@ -28,7 +28,7 @@ export default function Home() {
             {/* Desktop Links */}
             <div className="hidden md:flex space-x-8 items-center">
               <Link href="#essentials" className="text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors">Life's Essentials</Link>
-              <Link href="#education" className="text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors">Education</Link>
+              <Link href="#curiosity" className="text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors">Curiosity</Link>
               <Link href="#fun" className="text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors">Fun</Link>
             </div>
 
@@ -163,12 +163,12 @@ export default function Home() {
             </Link>
 
             {/* Card 2 */}
-            <Link href="/education" className="group bg-white dark:bg-[#1d1d1f] rounded-3xl p-8 flex flex-col justify-between shadow-sm hover:shadow-xl ring-1 ring-gray-900/5 dark:ring-white/5 transition-all duration-300">
+            <Link href="/app/mechanics-lab" className="group bg-white dark:bg-[#1d1d1f] rounded-3xl p-8 flex flex-col justify-between shadow-sm hover:shadow-xl ring-1 ring-gray-900/5 dark:ring-white/5 transition-all duration-300">
               <div>
                 <div className="w-10 h-10 bg-gray-100 dark:bg-black rounded-xl flex items-center justify-center mb-5 text-black dark:text-white group-hover:scale-110 transition-transform">
                   <Brain size={20} />
                 </div>
-                <h3 className="text-2xl font-bold tracking-tight text-black dark:text-white mb-3">Education</h3>
+                <h3 className="text-2xl font-bold tracking-tight text-black dark:text-white mb-3">Curiosity</h3>
                 <p className="text-gray-500 dark:text-gray-400 text-sm">
                   Deep-dive tactical puzzles, logic training, and high-level strategy to sharpen the mind.
                 </p>
@@ -200,7 +200,7 @@ export default function Home() {
               <h4 className="text-xs font-semibold uppercase tracking-wider text-black dark:text-white mb-4">Categories</h4>
               <ul className="space-y-3">
                 <li><Link href="#essentials" className="text-sm text-gray-500 hover:text-black dark:hover:text-white transition-colors">Life's Essentials</Link></li>
-                <li><Link href="#education" className="text-sm text-gray-500 hover:text-black dark:hover:text-white transition-colors">Education</Link></li>
+                <li><Link href="#curiosity" className="text-sm text-gray-500 hover:text-black dark:hover:text-white transition-colors">Curiosity</Link></li>
                 <li><Link href="#fun" className="text-sm text-gray-500 hover:text-black dark:hover:text-white transition-colors">Fun</Link></li>
               </ul>
             </div>
