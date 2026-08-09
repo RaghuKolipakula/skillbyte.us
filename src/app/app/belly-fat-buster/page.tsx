@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   ArrowLeft, 
   Flame, 
@@ -18,12 +19,24 @@ import {
   BookOpen
 } from 'lucide-react';
 
-export default function BellyButtonBuster() {
+export default function BellyFatBuster() {
   const [isWorkoutActive, setIsWorkoutActive] = useState(false);
   const [timeLeft, setTimeLeft] = useState(300); // 5 minutes
   const [isPaused, setIsPaused] = useState(false);
   const [isPro, setIsPro] = useState(false);
   const [currentStreak, setCurrentStreak] = useState(4);
+
+  const exercises = [
+    { name: 'Hollow Body Hold', image: '/images/hollow_body_hold.jpg' },
+    { name: 'Deadbug', image: '/images/deadbug.jpg' },
+    { name: 'Plank with Shoulder Taps', image: '/images/plank_shoulder_taps.jpg' },
+    { name: 'Bird-Dog', image: '/images/bird_dog.jpg' },
+    { name: 'Ab-Wheel Rollout', image: '/images/ab_wheel_rollout.jpg' },
+  ];
+
+  const currentExerciseIndex = Math.min(4, Math.floor((300 - timeLeft) / 60));
+  const currentExercise = exercises[currentExerciseIndex];
+  const nextExercise = currentExerciseIndex < 4 ? exercises[currentExerciseIndex + 1] : null;
 
   // Timer logic
   useEffect(() => {
@@ -67,7 +80,7 @@ export default function BellyButtonBuster() {
             <Link href="/" className="text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white transition-colors">
               <ArrowLeft size={20} />
             </Link>
-            <span className="font-semibold text-black dark:text-white tracking-tight">Belly Button Buster</span>
+            <span className="font-semibold text-black dark:text-white tracking-tight">Belly Fat Buster</span>
           </div>
           
           <div className="flex items-center space-x-6">
@@ -325,16 +338,29 @@ export default function BellyButtonBuster() {
             
             <div className="absolute top-24 text-center">
               <div className="inline-flex items-center space-x-2 bg-gray-100 dark:bg-[#1d1d1f] px-4 py-1.5 rounded-full text-sm font-semibold text-gray-600 dark:text-gray-300 uppercase tracking-widest mb-4">
-                Movement 1 of 5
+                Movement {currentExerciseIndex + 1} of 5
               </div>
               <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-black dark:text-white">
-                Hollow Body Hold
+                {currentExercise.name}
               </h2>
-              <p className="text-gray-500 dark:text-gray-400 mt-4 text-lg">Up next: Plank with Shoulder Taps</p>
+              <p className="text-gray-500 dark:text-gray-400 mt-4 text-lg">
+                {nextExercise ? `Up next: ${nextExercise.name}` : 'Final movement!'}
+              </p>
+            </div>
+
+            {/* Exercise Image */}
+            <div className="relative w-full max-w-2xl aspect-video rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 mb-8 mt-48">
+              <Image 
+                src={currentExercise.image} 
+                alt={currentExercise.name}
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
 
             {/* Massive Timer */}
-            <div className={`text-[120px] md:text-[240px] font-bold tracking-tighter leading-none mb-12 tabular-nums transition-colors duration-300 ${isPaused ? 'text-gray-300 dark:text-gray-800' : 'text-[#32d74b]'}`}>
+            <div className={`text-[80px] md:text-[140px] font-bold tracking-tighter leading-none mb-8 tabular-nums transition-colors duration-300 ${isPaused ? 'text-gray-300 dark:text-gray-800' : 'text-[#32d74b]'}`}>
               {formatTime(timeLeft)}
             </div>
 

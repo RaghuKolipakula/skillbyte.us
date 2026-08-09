@@ -74,16 +74,16 @@ export default function Home() {
             </div>
 
             <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-3">Life's Essentials</h3>
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Belly Button Buster.</h2>
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Belly Fat Buster.</h2>
             <p className="text-2xl text-gray-400 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
               Reverse desk-worker posture and build functional athletic core strength in just 5 minutes a day. Real results, minimal effort.
             </p>
             
             <div className="flex items-center space-x-6">
-              <Link href="/app/belly-button-buster" className="bg-white text-black px-8 py-4 rounded-full text-lg font-medium hover:scale-105 transition-transform">
+              <Link href="/app/belly-fat-buster" className="bg-white text-black px-8 py-4 rounded-full text-lg font-medium hover:scale-105 transition-transform">
                 Open App
               </Link>
-              <Link href="/app/belly-button-buster" className="group flex items-center text-lg font-medium text-white hover:text-gray-300 transition-colors">
+              <Link href="/app/belly-fat-buster" className="group flex items-center text-lg font-medium text-white hover:text-gray-300 transition-colors">
                 Learn more <ChevronRight className="ml-1 group-hover:translate-x-1 transition-transform" size={20} />
               </Link>
             </div>
@@ -93,7 +93,7 @@ export default function Home() {
                <div className="absolute top-0 w-full h-32 bg-gradient-to-b from-[#1d1d1f] to-transparent"></div>
                <div className="mt-auto h-[85%] bg-[#1d1d1f] mx-12 rounded-t-3xl border border-gray-800 shadow-2xl flex items-center justify-center overflow-hidden relative">
                  <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                 <span className="text-gray-600 font-mono tracking-widest text-sm relative z-10 border border-gray-700 px-4 py-2 rounded-full">BELLY BUTTON BUSTER INTERFACE</span>
+                 <span className="text-gray-600 font-mono tracking-widest text-sm relative z-10 border border-gray-700 px-4 py-2 rounded-full">BELLY FAT BUSTER INTERFACE</span>
                </div>
             </div>
           </div>

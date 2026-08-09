@@ -152,45 +152,44 @@ export default function MechanicsLab() {
               </div>
 
               {/* The mechanical visualization */}
-              <div className="relative w-full max-w-md h-32 border-b-2 border-gray-300 dark:border-gray-700 flex items-end">
+              <div 
+                className={`relative w-full max-w-md h-32 border-b border-gray-200 dark:border-gray-800 flex items-end ${unlockedStage <= 1 ? 'cursor-pointer hover:bg-gray-50 dark:hover:bg-[#222]' : ''} transition-colors rounded-t-xl`}
+                onClick={(e) => {
+                  if (unlockedStage > 1) return;
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const pct = ((e.clientX - rect.left) / rect.width) * 100;
+                  const val = Math.max(1, Math.min(10, Math.round((pct - 20) / 8)));
+                  setLeverLength(val);
+                }}
+              >
                 {/* Fulcrum */}
-                <div className="absolute bottom-0 left-[20%] w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[30px] border-b-blue-500"></div>
+                <div className="absolute bottom-0 left-[20%] w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-b-[24px] border-b-blue-500/80"></div>
                 
                 {/* Lever */}
                 <div 
-                  className="absolute bottom-[30px] left-[10%] h-2 bg-black dark:bg-white rounded-full transition-all duration-300 origin-left"
+                  className="absolute bottom-[24px] left-[10%] h-1 bg-black dark:bg-white rounded-full transition-all duration-300 origin-left shadow-sm"
                   style={{ width: `${20 + leverLength * 8}%`, transform: `rotate(${Math.max(0, 15 - leverLength * 2)}deg)` }}
                 ></div>
 
                 {/* Heavy Block */}
-                <div className="absolute bottom-[32px] left-[10%] w-16 h-16 bg-gray-900 dark:bg-gray-700 rounded-md shadow-2xl flex items-center justify-center text-white font-mono text-xs">
+                <div className="absolute bottom-[26px] left-[10%] w-12 h-12 bg-gray-100 dark:bg-[#2a2a2c] border border-gray-300 dark:border-gray-700 rounded-lg shadow-sm flex items-center justify-center text-gray-500 dark:text-gray-400 font-mono text-[10px]">
                   50kg
                 </div>
 
                 {/* Hand Indicator */}
                 <div 
-                  className="absolute bottom-[40px] flex flex-col items-center transition-all duration-300"
+                  className="absolute bottom-[36px] flex flex-col items-center transition-all duration-300"
                   style={{ left: `calc(${10 + 20 + leverLength * 8}% - 12px)` }}
                 >
-                  <TrendingDown size={24} className={effortRequired <= 100 ? 'text-green-500' : 'text-red-500'} />
+                  <TrendingDown size={20} className={effortRequired <= 100 ? 'text-green-500' : 'text-gray-400'} />
                 </div>
-              </div>
-            </div>
 
-            <div className="space-y-4">
-              <div className="flex justify-between text-xs font-mono text-gray-400 uppercase">
-                <span>Direct Lift</span>
-                <span>Max Lever</span>
+                {unlockedStage <= 1 && (
+                  <div className="absolute top-4 w-full text-center text-[10px] uppercase font-mono text-gray-400 tracking-widest opacity-50 pointer-events-none">
+                    Click along the beam to adjust length
+                  </div>
+                )}
               </div>
-              <input 
-                type="range" 
-                min="1" 
-                max="10" 
-                value={leverLength}
-                onChange={(e) => setLeverLength(Number(e.target.value))}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 accent-blue-500"
-                disabled={unlockedStage > 1}
-              />
             </div>
             
             {unlockedStage > 1 && (
@@ -214,9 +213,18 @@ export default function MechanicsLab() {
               Can you balance a 10kg weight using only 1kg of effort? Drag the fulcrum to find the correct mechanical advantage ratio.
             </p>
 
-            <div className="relative h-64 bg-gray-50 dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 flex flex-col items-center justify-center p-8 mb-8">
+            <div 
+              className={`relative h-64 bg-gray-50 dark:bg-[#111] rounded-2xl border border-gray-200 dark:border-gray-800 flex flex-col items-center justify-center p-8 mb-4 ${unlockedStage <= 2 ? 'cursor-pointer hover:border-blue-500/50' : ''} transition-colors`}
+              onClick={(e) => {
+                if (unlockedStage > 2) return;
+                const rect = e.currentTarget.getBoundingClientRect();
+                const pct = ((e.clientX - rect.left) / rect.width) * 100;
+                const val = Math.max(1, Math.min(10, Math.round(pct / 9)));
+                setFulcrumPos(val);
+              }}
+            >
               
-              <div className="absolute top-6 flex space-x-8 text-center font-mono">
+              <div className="absolute top-6 flex space-x-8 text-center font-mono pointer-events-none">
                 <div>
                   <div className="text-xs text-gray-400 uppercase mb-1">Ratio</div>
                   <div className="text-2xl font-bold text-black dark:text-white">{fulcrumPos}:1</div>
@@ -224,42 +232,35 @@ export default function MechanicsLab() {
               </div>
 
               {/* Balance Beam visualization */}
-              <div className="relative w-full max-w-md h-40 flex items-center justify-center">
+              <div className="relative w-full max-w-md h-40 flex items-center justify-center pointer-events-none">
                 
                 {/* Beam */}
                 <div 
-                  className="absolute top-1/2 w-full h-2 bg-black dark:bg-white rounded-full transition-transform duration-300"
+                  className="absolute top-1/2 w-full h-1 bg-black dark:bg-white rounded-full transition-transform duration-300"
                   style={{ transform: `rotate(${isBalanced ? 0 : 15 - fulcrumPos * 1.5}deg)` }}
                 >
                   {/* Left Weight (10kg) */}
-                  <div className="absolute -top-12 left-0 w-12 h-12 bg-gray-900 dark:bg-gray-700 rounded flex items-center justify-center text-white font-mono text-xs shadow-lg">
+                  <div className="absolute -top-10 left-0 w-10 h-10 bg-gray-100 dark:bg-[#2a2a2c] border border-gray-300 dark:border-gray-700 rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400 font-mono text-[10px] shadow-sm">
                     10kg
                   </div>
                   {/* Right Weight (1kg) */}
-                  <div className="absolute -top-6 right-0 w-6 h-6 bg-blue-500 rounded flex items-center justify-center text-white font-mono text-[10px] shadow-lg">
+                  <div className="absolute -top-6 right-0 w-6 h-6 bg-blue-500/10 border border-blue-500/50 rounded flex items-center justify-center text-blue-500 font-mono text-[8px] shadow-sm">
                     1kg
                   </div>
                 </div>
 
                 {/* Fulcrum */}
                 <div 
-                  className="absolute top-1/2 w-0 h-0 border-l-[15px] border-l-transparent border-r-[15px] border-r-transparent border-b-[30px] border-b-gray-400 transition-all duration-300 mt-1"
+                  className="absolute top-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[20px] border-b-gray-300 dark:border-b-gray-600 transition-all duration-300 mt-0.5"
                   style={{ left: `${fulcrumPos * 9}%` }}
                 ></div>
               </div>
-            </div>
 
-            <div className="space-y-4">
-              <input 
-                type="range" 
-                min="1" 
-                max="10" 
-                value={fulcrumPos}
-                onChange={(e) => setFulcrumPos(Number(e.target.value))}
-                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700 accent-blue-500"
-                disabled={unlockedStage > 2}
-              />
-              <div className="text-center text-xs font-mono text-gray-400 uppercase">Slide to position the fulcrum</div>
+              {unlockedStage <= 2 && (
+                  <div className="absolute bottom-6 w-full text-center text-[10px] uppercase font-mono text-gray-400 tracking-widest opacity-50 pointer-events-none">
+                    Click anywhere on the track to move the fulcrum
+                  </div>
+              )}
             </div>
           </div>
         </div>
