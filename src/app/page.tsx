@@ -3,11 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { 
   ChevronRight, 
-  Dumbbell, 
-  Brain, 
-  Gamepad2, 
-  Activity,
-  Flame,
   Menu
 } from 'lucide-react';
 
@@ -54,147 +49,117 @@ export default function Home() {
         </div>
       </nav>
 
-      <main className="pt-24 pb-16">
+      <main className="pt-12">
         
-        {/* 2. Hero Section */}
-        <section className="text-center px-4 pt-16 pb-24 max-w-5xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-black dark:text-white mb-6">
+        {/* 2. Massive Hero Section */}
+        <section className="text-center px-4 pt-24 pb-16 max-w-5xl mx-auto">
+          <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-black dark:text-white mb-6">
             Master your life.<br />One micro-app at a time.
           </h1>
           <p className="text-xl md:text-2xl text-gray-500 dark:text-gray-400 mb-10 max-w-3xl mx-auto font-light tracking-tight">
             A portal of highly addictive, sophisticated educational tools designed to upgrade your daily routine.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-20">
-            <Link href="#explore" className="bg-black text-white dark:bg-white dark:text-black px-8 py-4 rounded-full text-lg font-medium hover:scale-105 transition-transform w-full sm:w-auto">
-              Explore the Apps
-            </Link>
-            <Link href="#how-it-works" className="group flex items-center text-lg font-medium text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors w-full sm:w-auto justify-center">
-              How it works <ChevronRight className="ml-1 group-hover:translate-x-1 transition-transform" size={20} />
-            </Link>
-          </div>
-
-          {/* Hero Image Mockup Placeholder */}
-          <div className="relative w-full max-w-6xl mx-auto aspect-video bg-white dark:bg-[#1d1d1f] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-gray-900/5 dark:ring-white/10">
-            {/* The user will place a photorealistic lifestyle or minimalist interface mockup here: /images/hero-mockup.png */}
-            <div className="absolute inset-0 flex items-center justify-center flex-col">
-              <span className="text-gray-400 dark:text-gray-500 text-sm font-medium uppercase tracking-widest mb-2">Photorealistic UI Mockup</span>
-              <span className="text-gray-300 dark:text-gray-600 text-xs">/images/hero-mockup.png</span>
-            </div>
-          </div>
         </section>
 
-        {/* 3. Featured Micro-App (Dark Mode Transition) */}
-        <section className="bg-black text-white py-32 px-4 mt-20">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <div className="space-y-8">
-                <div className="inline-flex items-center space-x-2 bg-white/10 px-3 py-1 rounded-full text-sm font-medium text-white/80">
-                  <Flame size={16} className="text-orange-500" />
-                  <span>Flagship App</span>
-                </div>
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tight">
-                  Belly Button Buster.
-                </h2>
-                <p className="text-xl text-gray-400 font-light leading-relaxed">
-                  Reverse desk-worker posture and build functional athletic core strength in just 5 minutes a day. Real results, minimal effort.
-                </p>
-                <div>
-                  <Link href="/app/belly-button-buster" className="inline-flex items-center text-lg font-medium text-white hover:text-gray-300 transition-colors border-b border-white pb-1">
-                    Start the 4-day challenge <ChevronRight className="ml-1" size={20} />
-                  </Link>
-                </div>
-              </div>
-
-              {/* Bento Box UI Snippets */}
-              <div className="grid grid-cols-2 grid-rows-2 gap-4 h-[400px]">
-                <div className="col-span-2 bg-[#1d1d1f] rounded-3xl p-8 flex flex-col justify-between relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300 cursor-default">
-                  <div>
-                    <p className="text-gray-400 text-sm font-medium uppercase tracking-widest mb-1">Today's Goal</p>
-                    <p className="text-3xl font-bold">5:00 <span className="text-xl text-gray-500">min</span></p>
-                  </div>
-                  <div className="w-full bg-white/10 h-2 rounded-full mt-4 overflow-hidden">
-                    <div className="w-2/3 h-full bg-white rounded-full"></div>
-                  </div>
-                </div>
-                
-                <div className="bg-[#1d1d1f] rounded-3xl p-6 flex flex-col items-center justify-center relative overflow-hidden hover:scale-[1.02] transition-transform duration-300 cursor-default">
-                  <Activity size={32} className="mb-4 text-green-400" />
-                  <p className="text-2xl font-bold">4</p>
-                  <p className="text-gray-400 text-xs uppercase tracking-wider text-center">Day Streak</p>
-                </div>
-
-                <div className="bg-[#1d1d1f] rounded-3xl p-6 flex flex-col items-center justify-center relative overflow-hidden hover:scale-[1.02] transition-transform duration-300 cursor-default">
-                  {/* Heatmap placeholder graphic */}
-                  <div className="w-full h-full rounded-2xl bg-gradient-to-br from-orange-500/20 to-red-600/40 border border-white/5 flex items-center justify-center">
-                    <span className="text-xs text-white/50 font-medium">Core Heatmap</span>
-                  </div>
-                </div>
+        {/* 3. Life's Essentials (Belly Button Buster) - Dark Section */}
+        <section id="essentials" className="bg-black text-white pt-24 pb-32 px-4 mt-8">
+          <div className="max-w-6xl mx-auto text-center flex flex-col items-center">
+            
+            {/* Custom App Icon: Belly Button Buster */}
+            <div className="w-24 h-24 bg-gradient-to-br from-orange-500 to-red-600 rounded-[2rem] mb-8 flex items-center justify-center shadow-2xl relative overflow-hidden group hover:scale-105 transition-transform cursor-pointer">
+              <div className="absolute inset-0 bg-white/10" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}></div>
+              <div className="w-10 h-10 border-4 border-white/80 rounded-full flex items-center justify-center z-10">
+                <div className="w-3 h-3 bg-white/90 rounded-full"></div>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* 4. Core Categories (Bento Grid Layout) */}
-        <section className="py-32 px-4 max-w-7xl mx-auto" id="explore">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-black dark:text-white mb-6">
-              Three pillars to upgrade.
-            </h2>
-            <p className="text-xl text-gray-500 dark:text-gray-400 font-light">
-              Choose your path and start levelling up.
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-3">Life's Essentials</h3>
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Belly Button Buster.</h2>
+            <p className="text-2xl text-gray-400 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+              Reverse desk-worker posture and build functional athletic core strength in just 5 minutes a day. Real results, minimal effort.
             </p>
+            
+            <div className="flex items-center space-x-6">
+              <Link href="/app/belly-button-buster" className="bg-white text-black px-8 py-4 rounded-full text-lg font-medium hover:scale-105 transition-transform">
+                Open App
+              </Link>
+              <Link href="/app/belly-button-buster" className="group flex items-center text-lg font-medium text-white hover:text-gray-300 transition-colors">
+                Learn more <ChevronRight className="ml-1 group-hover:translate-x-1 transition-transform" size={20} />
+              </Link>
+            </div>
+
+            {/* Apple-style massive screenshot mockup */}
+            <div className="mt-20 w-full max-w-5xl aspect-[2/1] bg-[#111] rounded-t-[3rem] border-t border-l border-r border-gray-800 flex flex-col overflow-hidden relative">
+               <div className="absolute top-0 w-full h-32 bg-gradient-to-b from-[#1d1d1f] to-transparent"></div>
+               <div className="mt-auto h-[85%] bg-[#1d1d1f] mx-12 rounded-t-3xl border border-gray-800 shadow-2xl flex items-center justify-center overflow-hidden relative">
+                 <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+                 <span className="text-gray-600 font-mono tracking-widest text-sm relative z-10 border border-gray-700 px-4 py-2 rounded-full">BELLY BUTTON BUSTER INTERFACE</span>
+               </div>
+            </div>
           </div>
+        </section>
 
-          <div className="grid md:grid-cols-3 gap-6 md:h-[500px]">
-            {/* Card 1 */}
-            <Link href="/essentials" className="md:col-span-2 md:row-span-2 group bg-white dark:bg-[#1d1d1f] rounded-3xl p-10 flex flex-col justify-between shadow-sm hover:shadow-xl ring-1 ring-gray-900/5 dark:ring-white/5 transition-all duration-300">
-              <div>
-                <div className="w-12 h-12 bg-gray-100 dark:bg-black rounded-2xl flex items-center justify-center mb-6 text-black dark:text-white group-hover:scale-110 transition-transform">
-                  <Dumbbell size={24} />
-                </div>
-                <h3 className="text-3xl font-bold tracking-tight text-black dark:text-white mb-4">Life's Essentials</h3>
-                <p className="text-gray-500 dark:text-gray-400 text-lg max-w-sm">
-                  Focus on physical health, wealth mechanics, and optimizing your daily routines for maximum output.
-                </p>
-              </div>
-              <div className="mt-8 flex justify-end">
-                <div className="w-10 h-10 rounded-full bg-gray-50 dark:bg-white/5 flex items-center justify-center group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-colors">
-                  <ChevronRight size={20} />
-                </div>
-              </div>
-            </Link>
+        {/* 4. Curiosity (Mechanics Lab) - Light Section */}
+        <section id="curiosity" className="bg-white text-black pt-32 pb-32 px-4 border-b border-gray-100">
+          <div className="max-w-6xl mx-auto text-center flex flex-col items-center">
+            
+            {/* Custom App Icon: Mechanics Lab */}
+            <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-[2rem] mb-8 flex items-center justify-center shadow-2xl relative overflow-hidden group hover:scale-105 transition-transform cursor-pointer">
+               <div className="absolute inset-0 bg-white/10" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}></div>
+               {/* Minimalist geometric gear/triangle shape */}
+               <div className="w-12 h-12 relative flex items-center justify-center z-10">
+                 <div className="absolute w-full h-full border-4 border-white/80 rounded-lg rotate-45"></div>
+                 <div className="absolute w-full h-full border-4 border-white/80 rounded-lg"></div>
+                 <div className="w-3 h-3 bg-white/90 rounded-full z-10"></div>
+               </div>
+            </div>
 
-            {/* Card 2 */}
-            <Link href="/app/mechanics-lab" className="group bg-white dark:bg-[#1d1d1f] rounded-3xl p-8 flex flex-col justify-between shadow-sm hover:shadow-xl ring-1 ring-gray-900/5 dark:ring-white/5 transition-all duration-300">
-              <div>
-                <div className="w-10 h-10 bg-gray-100 dark:bg-black rounded-xl flex items-center justify-center mb-5 text-black dark:text-white group-hover:scale-110 transition-transform">
-                  <Brain size={20} />
-                </div>
-                <h3 className="text-2xl font-bold tracking-tight text-black dark:text-white mb-3">Curiosity</h3>
-                <p className="text-gray-500 dark:text-gray-400 text-sm">
-                  Deep-dive tactical puzzles, logic training, and high-level strategy to sharpen the mind.
-                </p>
-              </div>
-            </Link>
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-3">Curiosity</h3>
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Mechanics Lab.</h2>
+            <p className="text-2xl text-gray-500 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+              From layman to inventor. Discover the unseen forces that govern the physical world through interactive experimentation.
+            </p>
+            
+            <div className="flex items-center space-x-6">
+              <Link href="/app/mechanics-lab" className="bg-black text-white px-8 py-4 rounded-full text-lg font-medium hover:scale-105 transition-transform">
+                Open App
+              </Link>
+              <Link href="/app/mechanics-lab" className="group flex items-center text-lg font-medium text-black hover:text-gray-600 transition-colors">
+                Learn more <ChevronRight className="ml-1 group-hover:translate-x-1 transition-transform" size={20} />
+              </Link>
+            </div>
 
-            {/* Card 3 */}
-            <Link href="/fun" className="group bg-white dark:bg-[#1d1d1f] rounded-3xl p-8 flex flex-col justify-between shadow-sm hover:shadow-xl ring-1 ring-gray-900/5 dark:ring-white/5 transition-all duration-300">
-              <div>
-                <div className="w-10 h-10 bg-gray-100 dark:bg-black rounded-xl flex items-center justify-center mb-5 text-black dark:text-white group-hover:scale-110 transition-transform">
-                  <Gamepad2 size={20} />
-                </div>
-                <h3 className="text-2xl font-bold tracking-tight text-black dark:text-white mb-3">Fun</h3>
-                <p className="text-gray-500 dark:text-gray-400 text-sm">
-                  Addictive, dopamine-driven mini-games that secretly build your underlying skills.
-                </p>
-              </div>
-            </Link>
+            {/* Apple-style massive screenshot mockup */}
+            <div className="mt-20 w-full max-w-5xl aspect-[2/1] bg-gray-50 rounded-t-[3rem] border-t border-l border-r border-gray-200 flex flex-col overflow-hidden relative">
+               <div className="absolute top-0 w-full h-32 bg-gradient-to-b from-white to-transparent"></div>
+               <div className="mt-auto h-[85%] bg-white mx-12 rounded-t-3xl border border-gray-200 shadow-2xl flex items-center justify-center relative overflow-hidden">
+                 <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+                 <span className="text-gray-400 font-mono tracking-widest text-sm relative z-10 border border-gray-300 px-4 py-2 rounded-full">MECHANICS LAB SCHEMATIC</span>
+               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 5. Fun - Gray Section (Coming Soon) */}
+        <section id="fun" className="bg-[#f5f5f7] dark:bg-[#111] text-black dark:text-white pt-32 pb-32 px-4">
+          <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+            
+            <div className="w-24 h-24 bg-gray-200 dark:bg-[#222] rounded-[2rem] mb-8 flex items-center justify-center shadow-inner relative overflow-hidden">
+               <div className="w-8 h-8 rounded-full border-4 border-gray-300 dark:border-gray-600"></div>
+               <div className="absolute w-full h-1 bg-gray-300 dark:border-gray-600 transform rotate-45"></div>
+            </div>
+
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-3">Fun</h3>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">Coming Soon.</h2>
+            <p className="text-xl text-gray-500 font-light max-w-xl mx-auto mb-10 leading-relaxed">
+              Addictive, dopamine-driven mini-games that secretly build your underlying skills. We are currently developing our first title.
+            </p>
           </div>
         </section>
 
       </main>
 
-      {/* 5. Footer */}
+      {/* 6. Footer */}
       <footer className="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-[#111111] pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
