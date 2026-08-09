@@ -14,7 +14,8 @@ import {
   Activity,
   CalendarDays,
   ChevronRight,
-  Info
+  Info,
+  BookOpen
 } from 'lucide-react';
 
 export default function BellyButtonBuster() {
@@ -105,6 +106,42 @@ export default function BellyButtonBuster() {
               <p className="text-gray-500 dark:text-gray-400 text-lg font-light">
                 Ready to reverse that desk posture?
               </p>
+            </div>
+
+            {/* The Science Section */}
+            <div className="bg-white dark:bg-[#1d1d1f] rounded-3xl p-8 md:p-10 shadow-sm ring-1 ring-gray-900/5 dark:ring-white/5 relative overflow-hidden mb-12">
+              <div className="absolute -right-10 -top-10 w-40 h-40 bg-blue-500/10 blur-3xl rounded-full pointer-events-none"></div>
+              
+              <div className="flex items-center space-x-2 mb-6">
+                <div className="w-10 h-10 bg-gray-100 dark:bg-black rounded-xl flex items-center justify-center text-black dark:text-white">
+                  <BookOpen size={20} />
+                </div>
+                <h2 className="text-2xl font-bold tracking-tight text-black dark:text-white">
+                  The Science of the "Desk-Worker Pooch"
+                </h2>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-8 relative z-10">
+                <div>
+                  <h3 className="font-semibold text-lg text-black dark:text-white mb-2">1. Anterior Pelvic Tilt (APT)</h3>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                    Sitting for 8+ hours a day mechanically shortens your hip flexors and weakens your glutes. This muscle imbalance physically pulls your pelvis forward into an <strong>Anterior Pelvic Tilt</strong>, spilling your abdominal contents forward. This creates the illusion of a protruding lower belly, even in individuals with low body fat.
+                  </p>
+                  <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5684019/" target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 flex items-center">
+                    Read NIH Study on Posture <ChevronRight size={14} className="ml-0.5" />
+                  </a>
+                </div>
+                
+                <div>
+                  <h3 className="font-semibold text-lg text-black dark:text-white mb-2">2. Weak Transverse Abdominis (TVA)</h3>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                    The TVA is your body's deepest core muscle, acting as an internal corset that wraps around your spine and organs. Standard crunches ignore this muscle. When the TVA is inactive, there is no tension holding your midsection back. Strengthening it mechanically pulls the belly inwards.
+                  </p>
+                  <a href="https://www.health.harvard.edu/healthbeat/the-real-world-benefits-of-strengthening-your-core" target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 flex items-center">
+                    Harvard Health on Core Stabilization <ChevronRight size={14} className="ml-0.5" />
+                  </a>
+                </div>
+              </div>
             </div>
 
             {/* 2. Dashboard (Bento Grid) */}
