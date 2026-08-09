@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   ChevronRight, 
   Dumbbell, 
@@ -20,8 +21,9 @@ export default function Home() {
           <div className="flex justify-between items-center h-12 text-sm font-medium">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
-              <Link href="/" className="font-bold text-lg tracking-tight dark:text-white">
-                SkillByte
+              <Link href="/" className="flex items-center space-x-2 font-bold text-lg tracking-tight dark:text-white">
+                <Image src="/logo.jpg" alt="SkillByte Logo" width={28} height={28} className="rounded-md" />
+                <span>SkillByte</span>
               </Link>
             </div>
 
