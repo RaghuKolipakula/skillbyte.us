@@ -91,13 +91,37 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Apple-style massive screenshot mockup */}
-            <div className="mt-20 w-full max-w-5xl aspect-[2/1] bg-[#111] rounded-t-[3rem] border-t border-l border-r border-gray-800 flex flex-col overflow-hidden relative">
+             {/* Apple-style massive screenshot mockup */}
+            <div className="mt-20 w-full max-w-5xl aspect-[2/1] bg-[#111] rounded-t-[3rem] border-t border-l border-r border-gray-800 flex flex-col overflow-hidden relative mb-32">
                <div className="absolute top-0 w-full h-32 bg-gradient-to-b from-[#1d1d1f] to-transparent"></div>
                <div className="mt-auto h-[85%] bg-[#1d1d1f] mx-12 rounded-t-3xl border border-gray-800 shadow-2xl flex items-center justify-center overflow-hidden relative">
                  <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
                  <span className="text-gray-600 font-mono tracking-widest text-sm relative z-10 border border-gray-700 px-4 py-2 rounded-full">BELLY FAT BUSTER INTERFACE</span>
                </div>
+            </div>
+
+            {/* Custom App Icon: Resonance Pacer */}
+            <div className="w-24 h-24 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-[2rem] mb-8 flex items-center justify-center shadow-2xl relative overflow-hidden group hover:scale-105 transition-transform cursor-pointer">
+              <div className="absolute inset-0 bg-white/10" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}></div>
+              <div className="w-12 h-12 border-2 border-white/60 rounded-full flex items-center justify-center z-10">
+                <div className="w-8 h-8 border-2 border-white/80 rounded-full flex items-center justify-center">
+                  <div className="w-4 h-4 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.8)]"></div>
+                </div>
+              </div>
+            </div>
+
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Resonance.</h2>
+            <p className="text-2xl text-gray-500 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+              The Oxygen Quotient. Sync your breath to the 5.5-second resonance frequency. Rebalance your autonomic nervous system in 3 minutes.
+            </p>
+            
+            <div className="flex items-center space-x-6">
+              <Link href="/app/resonance" className="bg-white text-black px-8 py-4 rounded-full text-lg font-medium hover:scale-105 transition-transform">
+                Open App
+              </Link>
+              <Link href="/app/resonance" className="group flex items-center text-lg font-medium text-white hover:text-gray-300 transition-colors">
+                Learn more <ChevronRight className="ml-1 group-hover:translate-x-1 transition-transform" size={20} />
+              </Link>
             </div>
           </div>
         </section>
