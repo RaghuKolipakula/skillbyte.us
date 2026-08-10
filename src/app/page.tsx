@@ -133,12 +133,38 @@ export default function Home() {
             </div>
 
             {/* Apple-style massive screenshot mockup */}
-            <div className="mt-20 w-full max-w-5xl aspect-[2/1] bg-gray-50 rounded-t-[3rem] border-t border-l border-r border-gray-200 flex flex-col overflow-hidden relative">
+            <div className="mt-20 w-full max-w-5xl aspect-[2/1] bg-gray-50 rounded-t-[3rem] border-t border-l border-r border-gray-200 flex flex-col overflow-hidden relative mb-32">
                <div className="absolute top-0 w-full h-32 bg-gradient-to-b from-white to-transparent"></div>
                <div className="mt-auto h-[85%] bg-white mx-12 rounded-t-3xl border border-gray-200 shadow-2xl flex items-center justify-center relative overflow-hidden">
                  <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
                  <span className="text-gray-400 font-mono tracking-widest text-sm relative z-10 border border-gray-300 px-4 py-2 rounded-full">MECHANICS LAB SCHEMATIC</span>
                </div>
+            </div>
+
+            {/* Custom App Icon: Chrono */}
+            <div className="w-24 h-24 bg-gradient-to-br from-red-500 to-pink-600 rounded-[2rem] mb-8 flex items-center justify-center shadow-2xl relative overflow-hidden group hover:scale-105 transition-transform cursor-pointer">
+               <div className="absolute inset-0 bg-white/10" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}></div>
+               {/* Minimalist target/hourglass shape */}
+               <div className="w-12 h-12 relative flex items-center justify-center z-10">
+                 <div className="absolute w-full h-full border-4 border-white/80 rounded-full"></div>
+                 <div className="w-4 h-4 border-2 border-white/90 rounded-full z-10"></div>
+                 <div className="absolute w-[2px] h-full bg-white/50 rotate-45"></div>
+                 <div className="absolute w-[2px] h-full bg-white/50 -rotate-45"></div>
+               </div>
+            </div>
+
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Chrono.</h2>
+            <p className="text-2xl text-gray-500 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+              Hack your internal clock. A psychological sandbox that proves time is a biological illusion dictated by dopamine and attention.
+            </p>
+            
+            <div className="flex items-center space-x-6">
+              <Link href="/app/chrono" className="bg-black text-white px-8 py-4 rounded-full text-lg font-medium hover:scale-105 transition-transform">
+                Open App
+              </Link>
+              <Link href="/app/chrono" className="group flex items-center text-lg font-medium text-black hover:text-gray-600 transition-colors">
+                Learn more <ChevronRight className="ml-1 group-hover:translate-x-1 transition-transform" size={20} />
+              </Link>
             </div>
           </div>
         </section>
