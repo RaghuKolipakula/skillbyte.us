@@ -6,6 +6,7 @@ export interface LedgerState {
   resonanceSessions: number;
   chronoScores: number[];
   bellyFatWorkouts: number;
+  nBackMaxLevel: number;
   lastActiveDate: string | null;
   currentStreak: number;
 }
@@ -14,6 +15,7 @@ const DEFAULT_STATE: LedgerState = {
   resonanceSessions: 0,
   chronoScores: [],
   bellyFatWorkouts: 0,
+  nBackMaxLevel: 1,
   lastActiveDate: null,
   currentStreak: 0,
 };
@@ -93,11 +95,24 @@ export function useLedger() {
     });
   }, []);
 
+  const updateNBackMaxLevel = React.useCallback((level: number) => {
+    setLedger((prev) => {
+      if (level > prev.nBackMaxLevel) {
+        const newState = { nBackMaxLevel: level };
+        saveLedger(newState);
+        return { ...prev, ...newState };
+      }
+      return prev;
+    });
+  }, []);
+
   return {
-    ledger,
+    ledger, // Keep original ledger object for backward compatibility
+    ...ledger, // Spread properties so things like currentStreak can be directly destructured
     isLoaded,
     addResonanceSession,
     addChronoScore,
-    addBellyFatWorkout
+    addBellyFatWorkout,
+    updateNBackMaxLevel
   };
 }
