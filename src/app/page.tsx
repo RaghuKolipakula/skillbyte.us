@@ -174,6 +174,19 @@ export default function Home() {
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Hack your internal clock. A psychological sandbox proving time is a biological illusion.</p>
               </Link>
 
+              {/* Epoch Engine Card */}
+              <Link href="/app/epoch-engine" className="group flex flex-col bg-white dark:bg-[#1c1c1e] p-6 rounded-[2rem] hover:scale-105 transition-transform shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-800">
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-700 to-black rounded-2xl mb-4 flex items-center justify-center relative overflow-hidden shadow-inner border border-gray-600">
+                  <div className="absolute inset-0 bg-white/5" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}></div>
+                  <div className="w-8 h-8 relative flex items-center justify-center z-10">
+                    <div className="w-6 h-6 border-2 border-white/80 rounded-sm absolute"></div>
+                    <div className="w-1 h-6 bg-white/90 absolute rotate-45"></div>
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Epoch Engine</h4>
+                <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Probability is simple. The ego is complex. Overcome cognitive bias by steel-manning.</p>
+              </Link>
+
             </div>
           </div>
 
