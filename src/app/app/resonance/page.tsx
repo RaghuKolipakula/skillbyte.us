@@ -3,11 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Activity, Play, Square } from 'lucide-react';
+import { useLedger } from '@/lib/useLedger';
 
 export default function ResonancePacer() {
   const [isActive, setIsActive] = useState(false);
   const [timeLeft, setTimeLeft] = useState(180); // 3 minutes
   const [phase, setPhase] = useState<'inhale' | 'exhale'>('exhale'); // start by instructing inhale
+  const { addResonanceSession } = useLedger();
   
   // Timer countdown
   useEffect(() => {
@@ -20,10 +22,11 @@ export default function ResonancePacer() {
       setTimeout(() => {
         setIsActive(false);
         setPhase('exhale'); // reset to default collapsed state
+        addResonanceSession();
       }, 0);
     }
     return () => clearInterval(interval);
-  }, [isActive, timeLeft]);
+  }, [isActive, timeLeft, addResonanceSession]);
 
   // Breathing cycle logic (5.5s inhale, 5.5s exhale)
   useEffect(() => {

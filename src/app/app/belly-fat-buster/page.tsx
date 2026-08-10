@@ -18,6 +18,7 @@ import {
   Info,
   BookOpen
 } from 'lucide-react';
+import { useLedger } from '@/lib/useLedger';
 
 export default function BellyFatBuster() {
   const [isWorkoutActive, setIsWorkoutActive] = useState(false);
@@ -25,6 +26,7 @@ export default function BellyFatBuster() {
   const [isPaused, setIsPaused] = useState(false);
   const [isPro, setIsPro] = useState(false);
   const [currentStreak, setCurrentStreak] = useState(4);
+  const { addBellyFatWorkout } = useLedger();
 
   const exercises = [
     { name: 'Hollow Body Hold', image: '/images/hollow_body_hold.jpg' },
@@ -43,18 +45,17 @@ export default function BellyFatBuster() {
     let interval: NodeJS.Timeout;
     if (isWorkoutActive && !isPaused && timeLeft > 0) {
       interval = setInterval(() => {
-        setTimeLeft((prev) => {
-          if (prev <= 1) {
-            setIsWorkoutActive(false);
-            setCurrentStreak((streak) => streak + 1); // Simulate streak increment on completion
-            return 0;
-          }
-          return prev - 1;
-        });
+        setTimeLeft((prev) => prev - 1);
       }, 1000);
+    } else if (timeLeft === 0 && isWorkoutActive) {
+      setTimeout(() => {
+        setIsWorkoutActive(false);
+        setCurrentStreak((streak) => streak + 1);
+        addBellyFatWorkout();
+      }, 0);
     }
     return () => clearInterval(interval);
-  }, [isWorkoutActive, isPaused, timeLeft]);
+  }, [isWorkoutActive, isPaused, timeLeft, addBellyFatWorkout]);
 
   const formatTime = (seconds: number) => {
     const m = Math.floor(seconds / 60);

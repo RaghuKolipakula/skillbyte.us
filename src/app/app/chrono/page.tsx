@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Clock, Target, Play, RotateCcw, BrainCircuit } from 'lucide-react';
+import { useLedger } from '@/lib/useLedger';
 
 type Phase = 'intro' | 'compression' | 'dilation' | 'results';
 
@@ -11,28 +12,30 @@ export default function ChronoApp() {
   const [timeLeft, setTimeLeft] = useState(30);
   const [clicks, setClicks] = useState(0);
   const [targetPos, setTargetPos] = useState({ top: '50%', left: '50%' });
+  const { addChronoScore } = useLedger();
 
   // Timer logic for active phases
   useEffect(() => {
     let interval: NodeJS.Timeout;
     if ((phase === 'compression' || phase === 'dilation') && timeLeft > 0) {
       interval = setInterval(() => {
-        setTimeLeft((prev) => {
-          if (prev <= 1) {
-            if (phase === 'compression') {
-              setPhase('dilation');
-              return 30; // Reset for next phase
-            } else {
-              setPhase('results');
-              return 0;
-            }
-          }
-          return prev - 1;
-        });
+        setTimeLeft((prev) => prev - 1);
       }, 1000);
+    } else if (timeLeft === 0) {
+      if (phase === 'compression') {
+        setTimeout(() => {
+          setPhase('dilation');
+          setTimeLeft(30);
+        }, 0);
+      } else if (phase === 'dilation') {
+        setTimeout(() => {
+          setPhase('results');
+          addChronoScore(clicks);
+        }, 0);
+      }
     }
     return () => clearInterval(interval);
-  }, [phase, timeLeft]);
+  }, [phase, timeLeft, clicks, addChronoScore]);
 
   // Target movement for Compression phase
   useEffect(() => {

@@ -32,6 +32,9 @@ export default function Home() {
 
             {/* Actions */}
             <div className="hidden md:flex items-center space-x-6">
+              <Link href="/ledger" className="text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors font-semibold">
+                Ledger
+              </Link>
               <Link href="/signin" className="text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors">
                 Sign In
               </Link>
