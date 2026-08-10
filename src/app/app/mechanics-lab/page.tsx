@@ -358,6 +358,51 @@ export default function MechanicsLab() {
           </div>
         </div>
 
+        {/* Real World Examples */}
+        <div className={`transition-all duration-700 ease-out transform ${unlockedStage >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 hidden'}`}>
+          <div className="py-12 border-t border-gray-100 dark:border-white/5 mt-8 mb-8">
+            <h2 className="text-3xl font-bold tracking-tight text-black dark:text-white mb-10 text-center">
+              Astonishing Feats of Mechanical Advantage
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              
+              <div className="bg-white dark:bg-[#1d1d1f] rounded-3xl p-8 shadow-sm ring-1 ring-gray-900/5 dark:ring-white/5 flex flex-col h-full transform hover:scale-105 transition-transform duration-300">
+                <div className="mb-4">
+                  <span className="text-xs font-mono uppercase tracking-widest text-blue-500 bg-blue-500/10 px-3 py-1 rounded-full">Inclined Plane</span>
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-black dark:text-white">The Great Pyramids</h3>
+                <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed flex-grow">
+                  Without modern cranes, ancient Egyptians used massive inclined planes (ramps) and rollers to lift 2.5-ton limestone blocks hundreds of feet into the air. 
+                  By extending the distance, they reduced the input force required to staggering, humanly-possible levels.
+                </p>
+              </div>
+
+              <div className="bg-white dark:bg-[#1d1d1f] rounded-3xl p-8 shadow-sm ring-1 ring-gray-900/5 dark:ring-white/5 flex flex-col h-full transform hover:scale-105 transition-transform duration-300">
+                <div className="mb-4">
+                  <span className="text-xs font-mono uppercase tracking-widest text-purple-500 bg-purple-500/10 px-3 py-1 rounded-full">Compound Pulley</span>
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-black dark:text-white">Archimedes&apos; Ship</h3>
+                <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed flex-grow">
+                  Legend states Archimedes pulled the fully loaded <em>Syracusia</em>—the largest ship of antiquity—onto shore single-handedly. 
+                  He achieved this impossible feat by stringing together a massive block-and-tackle system, multiplying his pulling force exponentially.
+                </p>
+              </div>
+
+              <div className="bg-white dark:bg-[#1d1d1f] rounded-3xl p-8 shadow-sm ring-1 ring-gray-900/5 dark:ring-white/5 flex flex-col h-full transform hover:scale-105 transition-transform duration-300">
+                <div className="mb-4">
+                  <span className="text-xs font-mono uppercase tracking-widest text-green-500 bg-green-500/10 px-3 py-1 rounded-full">Lever & Gear</span>
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-black dark:text-white">Modern Tower Cranes</h3>
+                <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed flex-grow">
+                  Tower cranes lift 20-ton steel beams 800 feet into the air using surprisingly small electric motors. 
+                  They combine massive heavy-duty gears (to multiply torque) with extreme leveraging (using concrete counterweights) to manipulate skyscrapers into existence.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
         {/* Stage 4: The Inventor (Pro Gate) */}
         <div className={`transition-all duration-700 ease-out transform ${unlockedStage >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 hidden'}`}>
           <div className="bg-gradient-to-br from-gray-900 to-black rounded-3xl p-1 text-white shadow-xl relative overflow-hidden">
