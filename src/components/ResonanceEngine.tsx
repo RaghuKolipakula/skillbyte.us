@@ -37,7 +37,7 @@ export function ResonanceEngine({ onComplete, autoStart = false, hideControls = 
   // Breathing cycle logic (5.5s inhale, 5.5s exhale)
   useEffect(() => {
     let phaseInterval: NodeJS.Timeout;
-    if (isActive && timeLeft > 0) {
+    if (isActive) {
       setTimeout(() => setPhase('inhale'), 0);
       phaseInterval = setInterval(() => {
         setPhase((p) => (p === 'inhale' ? 'exhale' : 'inhale'));
@@ -46,7 +46,7 @@ export function ResonanceEngine({ onComplete, autoStart = false, hideControls = 
       setTimeout(() => setPhase('exhale'), 0);
     }
     return () => clearInterval(phaseInterval);
-  }, [isActive, timeLeft]);
+  }, [isActive]);
 
   const toggleSession = () => {
     if (isActive) {
