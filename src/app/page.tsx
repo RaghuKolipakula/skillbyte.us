@@ -54,11 +54,13 @@ export default function Home() {
         
         {/* 2. Massive Hero Section */}
         <section className="text-center px-4 pt-24 pb-16 max-w-5xl mx-auto">
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-black dark:text-white mb-6">
-            Master your life.<br />One micro-app at a time.
+          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 text-black dark:text-white">
+            Master your life. <br />
+            <span className="text-gray-400">One micro-app at a time.</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-500 dark:text-gray-400 mb-10 max-w-3xl mx-auto font-light tracking-tight">
-            A portal of highly addictive, sophisticated educational tools designed to upgrade your daily routine.
+          <p className="text-xl md:text-3xl text-gray-500 font-light max-w-3xl mb-12 leading-relaxed">
+            SkillByte is a premium collection of addictive, highly-focused tools designed to rapidly upgrade your everyday capabilities. 
+            No fluff. No subscriptions. Just biological hacks, mental models, and life&apos;s essential skills.
           </p>
         </section>
 
@@ -74,10 +76,10 @@ export default function Home() {
               </div>
             </div>
 
-            <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-400 mb-3">Life's Essentials</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-3">Life&apos;s Essentials</h3>
             <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Belly Fat Buster.</h2>
-            <p className="text-2xl text-gray-400 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
-              Reverse desk-worker posture and build functional athletic core strength in just 5 minutes a day. Real results, minimal effort.
+            <p className="text-2xl text-gray-500 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+              A minimalist, functional core-training sequence designed to actually work. Build a stronger foundation with zero equipment.
             </p>
             
             <div className="flex items-center space-x-6">
@@ -152,7 +154,7 @@ export default function Home() {
             <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-3">Fun & Recovery</h3>
             <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Panoramic Reset.</h2>
             <p className="text-2xl text-gray-500 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
-              Manually turn off your body's stress response with a hardwired biological hack. Discover how changing your gaze resets your nervous system.
+              Manually turn off your body&apos;s stress response with a hardwired biological hack. Discover how changing your gaze resets your nervous system.
             </p>
             
             <div className="flex items-center justify-center space-x-6">
@@ -190,7 +192,7 @@ export default function Home() {
             <div>
               <h4 className="text-xs font-semibold uppercase tracking-wider text-black dark:text-white mb-4">Categories</h4>
               <ul className="space-y-3">
-                <li><Link href="#essentials" className="text-sm text-gray-500 hover:text-black dark:hover:text-white transition-colors">Life's Essentials</Link></li>
+                <li><Link href="#essentials" className="text-sm text-gray-500 hover:text-black dark:hover:text-white transition-colors">Life&apos;s Essentials</Link></li>
                 <li><Link href="#curiosity" className="text-sm text-gray-500 hover:text-black dark:hover:text-white transition-colors">Curiosity</Link></li>
                 <li><Link href="#fun" className="text-sm text-gray-500 hover:text-black dark:hover:text-white transition-colors">Fun</Link></li>
               </ul>

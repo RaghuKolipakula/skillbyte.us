@@ -22,10 +22,14 @@ export default function PanoramicReset() {
     let interval: NodeJS.Timeout;
     if (isTimerActive && timeLeft > 0) {
       interval = setInterval(() => {
-        setTimeLeft((prev) => prev - 1);
+        setTimeLeft((prev) => {
+          if (prev <= 1) {
+            setIsTimerActive(false);
+            return 0;
+          }
+          return prev - 1;
+        });
       }, 1000);
-    } else if (timeLeft === 0 && isTimerActive) {
-      setIsTimerActive(false);
     }
     return () => clearInterval(interval);
   }, [isTimerActive, timeLeft]);
@@ -97,7 +101,7 @@ export default function PanoramicReset() {
                   When you are intensely focused on a single point—like tracking a complex dataset, staring at a monitor, or debugging a line of code—your visual field narrows.
                 </p>
                 <p className="text-lg text-gray-500 leading-relaxed">
-                  This "focal vision" doesn't just happen because you are concentrating; it actually operates as a feedback loop. Narrowing your gaze actively triggers your <strong>sympathetic nervous system</strong>, telling your brain to release adrenaline and stay on high alert. Over hours of deep work, that low-grade alertness turns into tension and mental fatigue.
+                  This &quot;focal vision&quot; doesn&apos;t just happen because you are concentrating; it actually operates as a feedback loop. Narrowing your gaze actively triggers your <strong>sympathetic nervous system</strong>, telling your brain to release adrenaline and stay on high alert. Over hours of deep work, that low-grade alertness turns into tension and mental fatigue.
                 </p>
               </div>
             </div>
@@ -110,7 +114,7 @@ export default function PanoramicReset() {
                 </div>
                 <h2 className="text-3xl font-bold text-black dark:text-white tracking-tight">Panoramic Vision</h2>
                 <p className="text-lg text-gray-500 leading-relaxed">
-                  When you feel that friction building, walk to a window and look out at the horizon. Don't focus on a specific object; just let your gaze widen so you are taking in the entire periphery of your environment at once.
+                  When you feel that friction building, walk to a window and look out at the horizon. Don&apos;t focus on a specific object; just let your gaze widen so you are taking in the entire periphery of your environment at once.
                 </p>
                 <p className="text-lg text-gray-500 leading-relaxed">
                   Expanding your visual field mechanically signals your brain stem to activate the <strong>parasympathetic nervous system</strong>. It acts as an instant, biological brake pedal for stress. Your breathing slows down, your heart rate drops, and that coiled-up tension in your neck releases—all because you spent 30 seconds looking at a wider space.

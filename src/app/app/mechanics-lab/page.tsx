@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { 
   ArrowLeft, 
   Settings, 
-  Wrench, 
   Lightbulb, 
   Lock, 
   Unlock,
@@ -292,7 +291,7 @@ export default function MechanicsLab() {
             </div>
             
             <p className="text-gray-500 dark:text-gray-400 text-sm mb-6">
-              <strong>Engineer's Challenge:</strong> A 500kg engine block needs to be lifted 1 meter. Construct a compound machine by selecting components in the correct sequence: Lever, Gear, Pulley.
+              <strong>Engineer&apos;s Challenge:</strong> A 500kg engine block needs to be lifted 1 meter. Construct a compound machine by selecting components in the correct sequence: Lever, Gear, Pulley.
             </p>
 
             <div className="grid md:grid-cols-2 gap-8">

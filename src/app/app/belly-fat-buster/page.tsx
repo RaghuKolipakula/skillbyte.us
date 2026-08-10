@@ -229,7 +229,7 @@ export default function BellyFatBuster() {
                 <div>
                   <h3 className="font-semibold text-black dark:text-white mb-1">Target: TVA & Obliques</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">
-                    Today's session heavily targets the deep abdominal wall to create a natural corset effect around your spine.
+                    Today&apos;s session heavily targets the deep abdominal wall to create a natural corset effect around your spine.
                   </p>
                 </div>
               </div>
