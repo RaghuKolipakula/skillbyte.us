@@ -3,7 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { 
   ChevronRight, 
-  Menu
+  Menu,
+  Eye
 } from 'lucide-react';
 
 export default function Home() {
@@ -144,16 +145,39 @@ export default function Home() {
         <section id="fun" className="bg-[#f5f5f7] dark:bg-[#111] text-black dark:text-white pt-32 pb-32 px-4">
           <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
             
-            <div className="w-24 h-24 bg-gray-200 dark:bg-[#222] rounded-[2rem] mb-8 flex items-center justify-center shadow-inner relative overflow-hidden">
-               <div className="w-8 h-8 rounded-full border-4 border-gray-300 dark:border-gray-600"></div>
-               <div className="absolute w-full h-1 bg-gray-300 dark:border-gray-600 transform rotate-45"></div>
+            <div className="w-24 h-24 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-[2rem] mb-8 flex items-center justify-center shadow-xl relative overflow-hidden">
+               <Eye className="text-white drop-shadow-md" size={48} strokeWidth={1.5} />
             </div>
 
-            <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-3">Fun</h3>
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">Coming Soon.</h2>
-            <p className="text-xl text-gray-500 font-light max-w-xl mx-auto mb-10 leading-relaxed">
-              Addictive, dopamine-driven mini-games that secretly build your underlying skills. We are currently developing our first title.
+            <h3 className="text-sm font-semibold uppercase tracking-widest text-gray-500 mb-3">Fun & Recovery</h3>
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">Panoramic Reset.</h2>
+            <p className="text-2xl text-gray-500 font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+              Manually turn off your body's stress response with a hardwired biological hack. Discover how changing your gaze resets your nervous system.
             </p>
+            
+            <div className="flex items-center justify-center space-x-6">
+              <Link href="/app/panoramic-reset" className="bg-black dark:bg-white text-white dark:text-black px-8 py-4 rounded-full text-lg font-medium hover:scale-105 transition-transform">
+                Open App
+              </Link>
+              <Link href="/app/panoramic-reset" className="group flex items-center text-lg font-medium text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+                Learn more <ChevronRight className="ml-1 group-hover:translate-x-1 transition-transform" size={20} />
+              </Link>
+            </div>
+
+            {/* Apple-style massive screenshot mockup */}
+            <div className="mt-20 w-full max-w-5xl aspect-[2/1] bg-white dark:bg-black rounded-t-[3rem] border-t border-l border-r border-gray-200 dark:border-gray-800 flex flex-col overflow-hidden relative shadow-2xl">
+               <div className="absolute top-0 w-full h-32 bg-gradient-to-b from-gray-50 dark:from-[#111] to-transparent z-10"></div>
+               <div className="mt-auto h-[85%] bg-[#f5f5f7] dark:bg-[#1d1d1f] mx-12 rounded-t-3xl border border-gray-200 dark:border-gray-800 flex items-center justify-center relative overflow-hidden">
+                 <div className="absolute w-full h-full opacity-20 dark:opacity-40">
+                   <div className="w-full h-full flex flex-col items-center justify-center space-y-4">
+                     <div className="w-3/4 h-[1px] bg-blue-500/50"></div>
+                     <div className="w-full h-[1px] bg-blue-500/50"></div>
+                     <div className="w-3/4 h-[1px] bg-blue-500/50"></div>
+                   </div>
+                 </div>
+                 <span className="text-gray-500 dark:text-gray-400 font-sans tracking-tight text-xl md:text-3xl relative z-10">Expand your visual field.</span>
+               </div>
+            </div>
           </div>
         </section>
 

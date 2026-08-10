@@ -10,6 +10,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "SkillByte | Master your life. One micro-app at a time.",
   description: "A premium micro-app portal that provides addictive, educational tools for different aspects of human life.",
+  icons: {
+    icon: "/logo.jpg",
+  }
 };
 
 export default function RootLayout({
