@@ -18,7 +18,6 @@ export function StillnessEngine() {
   const pointerPos = useRef<{ x: number; y: number } | null>(null);
   const centerPos = useRef<{ x: number; y: number } | null>(null);
   const startTime = useRef<number>(0);
-  const rafId = useRef<number>(0);
   
   // Calculate center on mount and resize
   const updateCenter = useCallback(() => {
@@ -38,67 +37,67 @@ export function StillnessEngine() {
   }, [updateCenter]);
 
   // Main game loop
-  const loop = useCallback(() => {
+  useEffect(() => {
     if (state !== 'running') return;
-
-    const elapsed = Date.now() - startTime.current;
     
-    // Victory condition
-    if (elapsed >= DURATION_MS) {
-      setState('victory');
-      setRadius(MIN_RADIUS);
-      setTimeLeft(0);
+    startTime.current = Date.now();
+    let localRafId: number;
+
+    const tick = () => {
+      const elapsed = Date.now() - startTime.current;
       
-      // Mint Proof of Stillness token
-      try {
-        const ledger = JSON.parse(localStorage.getItem('identity_ledger') || '{}');
-        ledger['proof_of_stillness'] = new Date().toISOString();
-        localStorage.setItem('identity_ledger', JSON.stringify(ledger));
-      } catch (e) {
-        // Ignore local storage errors
+      // Victory condition
+      if (elapsed >= DURATION_MS) {
+        setState('victory');
+        setRadius(MIN_RADIUS);
+        setTimeLeft(0);
+        
+        // Mint Proof of Stillness token
+        try {
+          const ledger = JSON.parse(localStorage.getItem('identity_ledger') || '{}');
+          ledger['proof_of_stillness'] = new Date().toISOString();
+          localStorage.setItem('identity_ledger', JSON.stringify(ledger));
+        } catch (_e) {
+          // Ignore local storage errors
+        }
+        return;
       }
-      return;
-    }
 
-    // Shrink radius exponentially
-    const progress = elapsed / DURATION_MS;
-    // Ease-in curve so it shrinks faster at the end to increase pressure
-    const easeProgress = Math.pow(progress, 2); 
-    const currentRadius = MAX_RADIUS - (MAX_RADIUS - MIN_RADIUS) * easeProgress;
-    
-    setRadius(currentRadius);
-    setTimeLeft(Math.ceil((DURATION_MS - elapsed) / 1000));
-
-    // Check collision
-    if (pointerPos.current && centerPos.current) {
-      const dx = pointerPos.current.x - centerPos.current.x;
-      const dy = pointerPos.current.y - centerPos.current.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
+      // Shrink radius exponentially
+      const progress = elapsed / DURATION_MS;
+      // Ease-in curve so it shrinks faster at the end to increase pressure
+      const easeProgress = Math.pow(progress, 2); 
+      const currentRadius = MAX_RADIUS - (MAX_RADIUS - MIN_RADIUS) * easeProgress;
       
-      if (distance > currentRadius) {
-        // Failed
+      setRadius(currentRadius);
+      setTimeLeft(Math.ceil((DURATION_MS - elapsed) / 1000));
+
+      // Check collision
+      if (pointerPos.current && centerPos.current) {
+        const dx = pointerPos.current.x - centerPos.current.x;
+        const dy = pointerPos.current.y - centerPos.current.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance > currentRadius) {
+          // Failed
+          setState('failed');
+          return;
+        }
+      } else {
+        // Pointer left the screen or wasn't captured
         setState('failed');
         return;
       }
-    } else {
-      // Pointer left the screen or wasn't captured
-      setState('failed');
-      return;
-    }
 
-    rafId.current = requestAnimationFrame(loop);
-  }, [state]);
-
-  // Start or stop loop when state changes
-  useEffect(() => {
-    if (state === 'running') {
-      startTime.current = Date.now();
-      rafId.current = requestAnimationFrame(loop);
-    }
-    return () => {
-      cancelAnimationFrame(rafId.current);
+      localRafId = requestAnimationFrame(tick);
     };
-  }, [state, loop]);
+
+    localRafId = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(localRafId);
+    };
+  }, [state]);
 
   const handlePointerMove = (e: React.PointerEvent) => {
     pointerPos.current = { x: e.clientX, y: e.clientY };
