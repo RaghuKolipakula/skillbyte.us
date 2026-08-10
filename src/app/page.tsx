@@ -25,7 +25,7 @@ export default function Home() {
 
             {/* Desktop Links */}
             <div className="hidden md:flex space-x-8 items-center">
-              <Link href="#essentials" className="text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors">Life's Essentials</Link>
+              <Link href="#essentials" className="text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors">Life&apos;s Essentials</Link>
               <Link href="#curiosity" className="text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors">Curiosity</Link>
               <Link href="#fun" className="text-gray-600 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors">Fun</Link>
             </div>

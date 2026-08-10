@@ -43,11 +43,15 @@ export default function BellyFatBuster() {
     let interval: NodeJS.Timeout;
     if (isWorkoutActive && !isPaused && timeLeft > 0) {
       interval = setInterval(() => {
-        setTimeLeft((prev) => prev - 1);
+        setTimeLeft((prev) => {
+          if (prev <= 1) {
+            setIsWorkoutActive(false);
+            setCurrentStreak((streak) => streak + 1); // Simulate streak increment on completion
+            return 0;
+          }
+          return prev - 1;
+        });
       }, 1000);
-    } else if (timeLeft === 0 && isWorkoutActive) {
-      setIsWorkoutActive(false);
-      setCurrentStreak(prev => prev + 1); // Simulate streak increment on completion
     }
     return () => clearInterval(interval);
   }, [isWorkoutActive, isPaused, timeLeft]);
@@ -130,7 +134,7 @@ export default function BellyFatBuster() {
                   <BookOpen size={20} />
                 </div>
                 <h2 className="text-2xl font-bold tracking-tight text-black dark:text-white">
-                  The Science of the "Desk-Worker Pooch"
+                  The Science of the &quot;Desk-Worker Pooch&quot;
                 </h2>
               </div>
               
@@ -148,7 +152,7 @@ export default function BellyFatBuster() {
                 <div>
                   <h3 className="font-semibold text-lg text-black dark:text-white mb-2">2. Weak Transverse Abdominis (TVA)</h3>
                   <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">
-                    The TVA is your body's deepest core muscle, acting as an internal corset that wraps around your spine and organs. Standard crunches ignore this muscle. When the TVA is inactive, there is no tension holding your midsection back. Strengthening it mechanically pulls the belly inwards.
+                    The TVA is your body&apos;s deepest core muscle, acting as an internal corset that wraps around your spine and organs. Standard crunches ignore this muscle. When the TVA is inactive, there is no tension holding your midsection back. Strengthening it mechanically pulls the belly inwards.
                   </p>
                   <a href="https://www.health.harvard.edu/healthbeat/the-real-world-benefits-of-strengthening-your-core" target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 flex items-center">
                     Harvard Health on Core Stabilization <ChevronRight size={14} className="ml-0.5" />
