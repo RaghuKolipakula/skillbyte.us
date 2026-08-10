@@ -1,4 +1,6 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
@@ -6,8 +8,11 @@ import {
   Menu,
   Eye
 } from 'lucide-react';
+import { StripeModal } from '@/components/StripeModal';
 
 export default function Home() {
+  const [isStripeOpen, setIsStripeOpen] = useState(false);
+  const [isPro, setIsPro] = useState(false);
   return (
     <div className="min-h-screen bg-[#f5f5f7] dark:bg-black selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black font-sans transition-colors duration-300">
       
@@ -56,7 +61,7 @@ export default function Home() {
       <main className="pt-12">
         
         {/* 2. Massive Hero Section */}
-        <section className="text-center px-4 pt-24 pb-16 max-w-5xl mx-auto">
+        <section className="text-center px-4 pt-24 pb-16 max-w-5xl mx-auto flex flex-col items-center justify-center">
           <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 text-black dark:text-white">
             Master your life. <br />
             <span className="text-gray-400">One micro-app at a time.</span>
@@ -65,7 +70,33 @@ export default function Home() {
             SkillByte is a premium collection of addictive, highly-focused tools designed to rapidly upgrade your everyday capabilities. 
             No fluff. No subscriptions. Just biological hacks, mental models, and life&apos;s essential skills.
           </p>
+
+          {/* The Upsell (Steve's Mandate) */}
+          <div className="mt-8 mb-12">
+            {isPro ? (
+              <Link 
+                href="/daily"
+                className="inline-flex items-center justify-center px-16 py-6 text-2xl font-bold text-black bg-white rounded-[2rem] hover:scale-105 transition-transform shadow-[0_0_40px_rgba(255,255,255,0.3)] backdrop-blur-md border border-white/20"
+              >
+                Start Today
+              </Link>
+            ) : (
+              <button 
+                onClick={() => setIsStripeOpen(true)}
+                className="inline-flex items-center justify-center px-12 py-5 text-xl font-bold text-black bg-white rounded-full hover:scale-105 transition-transform shadow-[0_0_40px_rgba(255,255,255,0.3)] backdrop-blur-md border border-white/20 relative overflow-hidden group"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                Unlock The Daily Flow
+              </button>
+            )}
+          </div>
         </section>
+
+        <StripeModal 
+          isOpen={isStripeOpen} 
+          onClose={() => setIsStripeOpen(false)} 
+          onSuccess={() => setIsPro(true)} 
+        />
 
         {/* 3. Life's Essentials (Belly Button Buster) - Dark Section */}
         <section id="essentials" className="bg-black text-white pt-24 pb-32 px-4 mt-8">
