@@ -134,6 +134,18 @@ export default function Home() {
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Sync your breath to the 5.5s resonance frequency to rebalance your nervous system.</p>
               </Link>
 
+              {/* Apnea Protocol Card */}
+              <Link href="/app/apnea" className="group flex flex-col bg-white dark:bg-[#1c1c1e] p-6 rounded-[2rem] hover:scale-105 transition-transform shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-800">
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-800 to-black rounded-2xl mb-4 flex items-center justify-center relative overflow-hidden shadow-inner border border-gray-700">
+                  <div className="absolute inset-0 bg-white/5" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}></div>
+                  <div className="w-8 h-8 border-2 border-white/60 rounded-full flex items-center justify-center z-10">
+                    <div className="w-6 h-6 border-2 border-dashed border-white/80 rounded-full animate-[spin_10s_linear_infinite]"></div>
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Apnea Protocol</h4>
+                <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Measure and expand your physiological panic threshold. A brutal test of CO2 tolerance.</p>
+              </Link>
+
             </div>
           </div>
 
