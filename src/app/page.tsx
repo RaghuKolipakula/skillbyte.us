@@ -239,6 +239,19 @@ export default function Home() {
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">A biological proof that your reality is actively rendered and faked by your brain.</p>
               </Link>
 
+              {/* The Entropy Engine Card */}
+              <Link href="/app/entropy" className="group flex flex-col bg-white dark:bg-[#1c1c1e] p-6 rounded-[2rem] hover:scale-105 transition-transform shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-800">
+                <div className="w-16 h-16 bg-black rounded-2xl mb-4 flex items-center justify-center relative overflow-hidden shadow-inner border border-gray-800">
+                  <div className="w-8 h-8 grid grid-cols-3 gap-[2px]">
+                    {[...Array(9)].map((_, i) => (
+                      <div key={i} className="bg-white/80 rounded-sm"></div>
+                    ))}
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Entropy Engine</h4>
+                <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">A visual simulation of wasted potential governed by the Second Law of Thermodynamics.</p>
+              </Link>
+
             </div>
           </div>
 
