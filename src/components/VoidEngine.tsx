@@ -21,14 +21,15 @@ export const VoidEngine = () => {
   // Initialize Web Audio API on first user interaction
   const initAudio = () => {
     if (!audioContextRef.current) {
-      audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+      const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+      audioContextRef.current = new AudioCtx();
     }
     if (audioContextRef.current.state === 'suspended') {
       audioContextRef.current.resume();
     }
   };
 
-  const playPing = (side: 'left' | 'right') => {
+  const playPing = useCallback((side: 'left' | 'right') => {
     if (!audioContextRef.current) return;
     
     const ctx = audioContextRef.current;
@@ -56,7 +57,7 @@ export const VoidEngine = () => {
 
     osc.start();
     osc.stop(ctx.currentTime + 0.6);
-  };
+  }, [score]);
 
   const playFailSound = () => {
     if (!audioContextRef.current) return;
@@ -110,7 +111,7 @@ export const VoidEngine = () => {
     timeoutRef.current = setTimeout(() => {
       fail();
     }, windowMsRef.current);
-  }, [fail, score]);
+  }, [fail, playPing]);
 
   const handleStart = () => {
     initAudio();
