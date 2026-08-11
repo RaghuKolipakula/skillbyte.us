@@ -74,6 +74,9 @@ export const EntropyEngine = () => {
         <h1 className="text-2xl font-bold tracking-[0.2em] uppercase mb-4 text-white/90">
           The Entropy Engine
         </h1>
+        <p className="text-gray-400 text-base font-light mb-2">
+          The universe tends toward chaos. Your attention is the only binding force.
+        </p>
         <p className="text-white/50 text-sm tracking-wider uppercase">
           {hasStarted 
             ? "Order is fleeting. Hold to restore." 
@@ -139,9 +142,11 @@ export const EntropyEngine = () => {
 
       {/* Warning text when chaos ensues */}
       <div className={`absolute bottom-24 z-20 transition-opacity duration-1000 ${(!isFocused && hasStarted) ? 'opacity-100' : 'opacity-0'}`}>
-        <p className="text-red-500/80 font-mono text-xs tracking-widest uppercase">
-          Warning: Maximum Entropy Detected. 
-        </p>
+        {hasStarted && (
+          <p className="text-red-500/80 font-mono text-xs tracking-widest uppercase">
+            Warning: Maximum Entropy Detected. 
+          </p>
+        )}
       </div>
       
     </div>

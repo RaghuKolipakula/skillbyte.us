@@ -94,7 +94,7 @@ export function ChronoEngine({ onComplete, autoStart = false, hideControls = fal
             </h1>
             <p className="text-xl text-gray-500 font-light leading-relaxed mb-12">
               Time is not a fixed construct. It is a biological illusion dictated by dopamine and attention. 
-              This 60-second perception test will prove that you can manually stretch or compress your subjective experience of time.
+              This two-part, ~60-second perception test will prove that you can manually stretch or compress your subjective experience of time, followed by a detailed explanation.
             </p>
             <button 
               onClick={startTest}

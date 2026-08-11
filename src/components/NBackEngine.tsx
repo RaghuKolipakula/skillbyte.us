@@ -241,30 +241,43 @@ export function NBackEngine({ autoStart = false, onComplete, hideControls = fals
 
         {/* Master Controls */}
         {!hideControls && (
-          <div className="flex items-center space-x-6 pt-8 border-t border-gray-800 w-full justify-center">
+          <div className="flex flex-col items-center w-full pt-8 border-t border-gray-800">
             
             {!isActive && !isFinished && (
-              <div className="flex items-center space-x-4 mr-8">
-                <button onClick={() => handleLevelAdjust(-1)} className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700">-</button>
-                <span className="font-mono">Level {nLevel}</span>
-                <button onClick={() => handleLevelAdjust(1)} className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700">+</button>
-              </div>
+              <details className="w-full max-w-md text-left text-sm text-gray-400 bg-[#111] rounded-lg p-4 mb-8 border border-gray-800">
+                <summary className="cursor-pointer font-bold text-gray-300 outline-none">How this works</summary>
+                <div className="mt-4 space-y-2">
+                  <p><strong>N-Back Training:</strong> A cognitive task to improve working memory. You must remember the position and audio from <em>N</em> steps ago.</p>
+                  <p><strong>Controls:</strong> Press <strong>A</strong> (or Pos) if the current position matches the one N steps ago. Press <strong>L</strong> (or Audio) if the audio matches.</p>
+                  <p><strong>Score:</strong> <strong>C</strong> = Correct matches, <strong>I</strong> = Incorrect matches, <strong>M</strong> = Missed matches.</p>
+                </div>
+              </details>
             )}
 
-            {!isActive ? (
-              <button 
-                onClick={startSequence}
-                className="flex items-center px-8 py-3 bg-white text-black rounded-full font-semibold hover:scale-105 transition-transform"
-              >
-                {isFinished ? <RotateCcw size={18} className="mr-2" /> : <Play size={18} className="mr-2" />}
-                {isFinished ? 'Retrain' : 'Initialize Matrix'}
-              </button>
-            ) : (
-              <div className="flex items-center text-red-500 animate-pulse font-mono text-sm tracking-widest">
-                <Activity size={16} className="mr-2" />
-                Processing
-              </div>
-            )}
+            <div className="flex items-center space-x-6 w-full justify-center">
+              {!isActive && !isFinished && (
+                <div className="flex items-center space-x-4 mr-8">
+                  <button onClick={() => handleLevelAdjust(-1)} className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700">-</button>
+                  <span className="font-mono">Level {nLevel}</span>
+                  <button onClick={() => handleLevelAdjust(1)} className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-gray-700">+</button>
+                </div>
+              )}
+
+              {!isActive ? (
+                <button 
+                  onClick={startSequence}
+                  className="flex items-center px-8 py-3 bg-white text-black rounded-full font-semibold hover:scale-105 transition-transform"
+                >
+                  {isFinished ? <RotateCcw size={18} className="mr-2" /> : <Play size={18} className="mr-2" />}
+                  {isFinished ? 'Retrain' : 'Initialize Matrix'}
+                </button>
+              ) : (
+                <div className="flex items-center text-red-500 animate-pulse font-mono text-sm tracking-widest">
+                  <Activity size={16} className="mr-2" />
+                  Processing
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>

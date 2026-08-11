@@ -9,6 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://skillbyte.us'),
   title: "SkillByte | Master your life. One micro-app at a time.",
   description: "A premium micro-app portal that provides addictive, educational tools for different aspects of human life. Discover biological hacks, mechanics labs, and core fitness training.",
   keywords: ["SkillByte", "micro-apps", "education", "productivity", "fitness", "mechanics", "biology hack"],
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "SkillByte",
     images: [
       {
-        url: "/logo.jpg",
+        url: "https://skillbyte.us/logo.jpg",
         width: 800,
         height: 600,
         alt: "SkillByte Logo",
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "SkillByte | Master your life. One micro-app at a time.",
     description: "A premium micro-app portal that provides addictive, educational tools for different aspects of human life.",
-    images: ["/logo.jpg"],
+    images: ["https://skillbyte.us/logo.jpg"],
   },
   icons: {
     icon: "/logo.jpg",

@@ -138,7 +138,7 @@ export function StillnessEngine() {
           The Stillness Engine.
         </h1>
         <p className="text-lg text-gray-400 font-light max-w-md mx-auto">
-          Impulse inhibition training. Hold your position within the shrinking boundary. A single twitch is a failure.
+          Impulse inhibition training. Hold your position within the boundary as it exponentially shrinks over 60 seconds. A single twitch fails the test, logging your time and requiring a restart.
         </p>
       </div>
 

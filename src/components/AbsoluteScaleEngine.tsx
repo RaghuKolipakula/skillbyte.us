@@ -189,6 +189,9 @@ export const AbsoluteScaleEngine = () => {
             transition={{ duration: 1.5, delay: 2 }}
             className="absolute bottom-20 z-30 flex flex-col items-center"
           >
+            <p className="text-sm text-gray-400 mb-4 max-w-md text-center px-4">
+              This visualization contrasts your wealth against the absolute scale of global inequality.
+            </p>
             <p className="text-xl font-light tracking-wide mb-8 text-center px-4 text-gray-300">
               Your time is your only real asset.<br/> Maximize it.
             </p>

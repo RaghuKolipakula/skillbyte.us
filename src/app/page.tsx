@@ -117,6 +117,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Belly Fat Buster</h4>
+                <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">10 Min · Hard</span></div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Functional core-training sequence designed to build a strong foundation with zero equipment.</p>
               </Link>
 
@@ -131,6 +132,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Resonance</h4>
+                <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">5 Min · Calm</span></div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Sync your breath to the 5.5s resonance frequency to rebalance your nervous system.</p>
               </Link>
 
@@ -143,6 +145,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Apnea Protocol</h4>
+                <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">3 Min · Extreme</span></div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Measure and expand your physiological panic threshold. A brutal test of CO2 tolerance.</p>
               </Link>
 
@@ -153,6 +156,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h4 className="text-lg font-bold text-white mb-1 tracking-tight">Homeostasis Engine</h4>
+                <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">2 Min · Intense</span></div>
                 <p className="text-sm text-gray-400 line-clamp-2">Gamified metabolic simulation. You are the pancreas. Survive the glucose spike.</p>
               </Link>
 
@@ -178,6 +182,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Mechanics Lab</h4>
+                <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">5 Min · Educational</span></div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Discover the unseen forces that govern the physical world through interactive experimentation.</p>
               </Link>
 
@@ -193,6 +198,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Chrono</h4>
+                <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">1 Min · Focus</span></div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Hack your internal clock. A psychological sandbox proving time is a biological illusion.</p>
               </Link>
 
@@ -206,6 +212,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Epoch Engine</h4>
+                <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">3 Min · Logic</span></div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Probability is simple. The ego is complex. Overcome cognitive bias by steel-manning.</p>
               </Link>
               {/* Perspective Engine Card */}
@@ -219,6 +226,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Perspective Engine</h4>
+                <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">Passive · Watch</span></div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">A cognitive recalibrator that mathematically visualizes the insignificance of modern anxiety.</p>
               </Link>
 
@@ -231,6 +239,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">The Absolute Scale</h4>
+                <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">Passive · Watch</span></div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">A stark, cinematic visualization of extreme wealth inequality and the value of time.</p>
               </Link>
 
@@ -246,6 +255,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Hallucination Engine</h4>
+                <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">1 Min · Focus</span></div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">A biological proof that your reality is actively rendered and faked by your brain.</p>
               </Link>
 
@@ -259,6 +269,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Entropy Engine</h4>
+                <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">Passive · Explore</span></div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">A visual simulation of wasted potential governed by the Second Law of Thermodynamics.</p>
               </Link>
 
@@ -284,6 +295,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">N-Back Matrix</h4>
+                <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">5 Min · Hard</span></div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">A brutal working-memory training environment to force neuroplasticity.</p>
               </Link>
 
@@ -296,6 +308,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Stillness Engine</h4>
+                <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">1 Min · Focus</span></div>
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Extreme impulse inhibition. Hold absolute stillness within a shrinking boundary.</p>
               </Link>
 
@@ -309,6 +322,7 @@ export default function Home() {
                   </div>
                 </div>
                 <h4 className="text-lg font-bold text-white mb-1 tracking-tight">The Void Engine</h4>
+                <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">2 Min · Intense</span></div>
                 <p className="text-sm text-gray-400 line-clamp-2">A sensory-deprivation reaction test. Survive entirely on spatial audio.</p>
               </Link>
 

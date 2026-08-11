@@ -164,7 +164,7 @@ export function EpochEngine() {
         <div className="absolute left-1/2 -translate-x-1/2 -bottom-12 flex items-center space-x-2 text-sm font-bold tracking-widest uppercase">
           {isLocked ? (
             <span className="flex items-center text-red-500">
-              <Lock size={16} className="mr-2" /> Locked
+              <Lock size={16} className="mr-2" /> Locked (Scenarios 2–5 require Pro)
             </span>
           ) : (
             <span className="flex items-center text-green-500">

@@ -103,18 +103,18 @@ export default function MechanicsLab() {
               </span>
             </div>
             
-            {!isPro ? (
+            {isPro ? (
+              <span className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-blue-400 to-indigo-500 text-transparent bg-clip-text flex items-center">
+                <Unlock size={14} className="mr-1 text-blue-400" /> Pro
+              </span>
+            ) : unlockedStage >= 4 ? (
               <button 
                 onClick={() => setIsPro(true)} // Mocking stripe redirect
                 className="text-xs font-semibold uppercase tracking-wider text-white bg-black dark:bg-white dark:text-black px-3 py-1.5 rounded-full hover:scale-105 transition-transform"
               >
                 Get Pro
               </button>
-            ) : (
-              <span className="text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-blue-400 to-indigo-500 text-transparent bg-clip-text flex items-center">
-                <Unlock size={14} className="mr-1 text-blue-400" /> Pro
-              </span>
-            )}
+            ) : null}
           </div>
         </div>
       </nav>
@@ -193,8 +193,10 @@ export default function MechanicsLab() {
                 </div>
 
                 {unlockedStage <= 1 && (
-                  <div className="absolute top-4 w-full text-center text-[10px] uppercase font-mono text-gray-400 tracking-widest opacity-50 pointer-events-none">
-                    Click along the beam to adjust length
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                    <div className="bg-blue-500/90 text-white text-xs px-4 py-2 rounded-full font-bold animate-pulse shadow-lg flex items-center border border-blue-400/50 backdrop-blur-sm">
+                      <MoveRight size={14} className="mr-2" /> Click beam to adjust length
+                    </div>
                   </div>
                 )}
               </div>
@@ -265,8 +267,10 @@ export default function MechanicsLab() {
               </div>
 
               {unlockedStage <= 2 && (
-                  <div className="absolute bottom-6 w-full text-center text-[10px] uppercase font-mono text-gray-400 tracking-widest opacity-50 pointer-events-none">
-                    Click anywhere on the track to move the fulcrum
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                    <div className="bg-blue-500/90 text-white text-xs px-4 py-2 rounded-full font-bold animate-pulse shadow-lg flex items-center border border-blue-400/50 backdrop-blur-sm">
+                      <MoveRight size={14} className="mr-2" /> Drag fulcrum to balance
+                    </div>
                   </div>
               )}
             </div>

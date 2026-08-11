@@ -79,6 +79,7 @@ export const PerspectiveEngine = () => {
                 className="w-full bg-transparent border-b border-white/20 pb-4 text-3xl md:text-5xl text-center focus:outline-none focus:border-white transition-colors placeholder:text-white/20 font-light"
                 autoFocus
               />
+              <p className="mt-8 text-sm text-gray-400 px-4">See your daily worries plotted against cosmic and historical scale.</p>
               <button 
                 type="submit"
                 disabled={!anxiety.trim()}

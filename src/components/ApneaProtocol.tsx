@@ -115,6 +115,10 @@ export function ApneaProtocol() {
              <p className="flex items-center font-bold text-white"><span className="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center text-xs mr-3">3</span> Exhale as slowly as humanly possible.</p>
           </div>
 
+          <div className="bg-red-500/10 border border-red-500/20 text-red-400 rounded-lg p-4 mb-12 text-sm text-left max-w-md mx-auto">
+            <strong>SAFETY WARNING:</strong> Do not attempt this diagnostic while driving, in or near water, or if you are pregnant or have cardiac issues.
+          </div>
+
           <button 
             onClick={() => setPhase('prep')}
             className="bg-white text-black px-12 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-[0_0_30px_rgba(255,255,255,0.2)]"

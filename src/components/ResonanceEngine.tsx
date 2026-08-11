@@ -76,6 +76,14 @@ export function ResonanceEngine({ onComplete, autoStart = false, hideControls = 
           <p className="text-lg text-gray-400 font-light max-w-md mx-auto leading-relaxed">
             Sync your breath to the 5.5-second resonance frequency. Rebalance your autonomic nervous system in 3 minutes.
           </p>
+          <div className="mt-6 inline-flex flex-col items-center">
+            <p className="text-sm font-medium text-blue-400 bg-blue-500/10 px-4 py-2 rounded-full mb-2 border border-blue-500/20">
+              Watch the circle expand and contract, and breathe with it — no need to count.
+            </p>
+            <p className="text-xs text-gray-500 uppercase tracking-widest">
+              Sound is optional
+            </p>
+          </div>
         </div>
       )}
 

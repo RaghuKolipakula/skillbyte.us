@@ -200,12 +200,20 @@ export const VoidEngine = () => {
               Listen for the ping. Tap the corresponding side of the screen. The window will shrink until you break.
             </p>
             
-            <button 
-              onClick={handleStart}
-              className="px-8 py-4 bg-white text-black hover:bg-gray-200 transition-colors uppercase tracking-widest text-sm font-bold"
-            >
-              Enter The Void
-            </button>
+            <div className="flex flex-col space-y-4 items-center">
+              <button 
+                onClick={() => { initAudio(); playPing('left'); setTimeout(() => playPing('right'), 500); }}
+                className="px-6 py-2 border border-gray-600 text-gray-400 hover:text-white hover:border-white transition-colors uppercase tracking-widest text-xs font-bold rounded-full"
+              >
+                Test Audio Calibration
+              </button>
+              <button 
+                onClick={handleStart}
+                className="px-8 py-4 bg-white text-black hover:bg-gray-200 transition-colors uppercase tracking-widest text-sm font-bold"
+              >
+                Enter The Void
+              </button>
+            </div>
           </motion.div>
         )}
 

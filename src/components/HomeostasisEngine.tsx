@@ -174,9 +174,13 @@ export const HomeostasisEngine = () => {
             className="z-10 flex flex-col items-center justify-center p-6 text-center absolute inset-0 pointer-events-none"
           >
             <h1 className="text-3xl tracking-[0.3em] uppercase mb-8 font-light">The Homeostasis Engine</h1>
-            <p className="text-gray-500 mb-12 max-w-md font-light text-sm">
-              You are the beta cell. Tap the screen rapidly to release insulin and compress the glucose spike. Tap too slow, you burn. Tap too fast, you crash.
+            <p className="text-gray-500 mb-6 max-w-md font-light text-sm">
+              You are the beta cell. Tap the screen rapidly to release insulin and compress the glucose spike.
             </p>
+            <div className="text-xs text-gray-400 bg-white/5 border border-white/10 rounded-xl p-4 mb-12 max-w-md text-left space-y-3">
+              <p><strong className="text-orange-400 block mb-1">Hyperglycemia (Game Over):</strong> Glucose spikes above 200 mg/dL if you tap too slow.</p>
+              <p><strong className="text-blue-400 block mb-1">Hypoglycemia (Game Over):</strong> Glucose drops below 50 mg/dL if you tap too fast.</p>
+            </div>
             <button 
               onClick={(e) => { e.stopPropagation(); startGame(); }}
               className="px-8 py-4 bg-white text-black hover:bg-gray-200 transition-colors uppercase tracking-widest text-sm font-bold pointer-events-auto"

@@ -23,6 +23,8 @@ export default function BellyFatBuster() {
   const [isWorkoutActive, setIsWorkoutActive] = useState(false);
   const [isGuideOpen, setIsGuideOpen] = useState(false);
   const [isPro, setIsPro] = useState(false);
+  const [hasCompletedSession, setHasCompletedSession] = useState(false);
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'gear'>('dashboard');
   const currentStreak = 4; // Mocked for UI, could fetch from useLedger if needed
 
   const handleStart = () => {
@@ -31,6 +33,7 @@ export default function BellyFatBuster() {
 
   const handleEnd = () => {
     setIsWorkoutActive(false);
+    setHasCompletedSession(true);
   };
 
   return (
@@ -81,14 +84,33 @@ export default function BellyFatBuster() {
           <div className="space-y-12 fade-in">
             
             {/* Header */}
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-black dark:text-white mb-2">
-                Good morning.
-              </h1>
-              <p className="text-gray-500 dark:text-gray-400 text-lg font-light">
-                Ready to reverse that desk posture?
-              </p>
+            <div className="flex flex-col md:flex-row md:items-end justify-between">
+              <div>
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-black dark:text-white mb-2">
+                  Good morning.
+                </h1>
+                <p className="text-gray-500 dark:text-gray-400 text-lg font-light">
+                  Ready to reverse that desk posture?
+                </p>
+              </div>
+              <div className="mt-6 md:mt-0 flex bg-gray-200 dark:bg-[#1d1d1f] rounded-full p-1">
+                <button 
+                  onClick={() => setActiveTab('dashboard')}
+                  className={`px-6 py-2 rounded-full text-sm font-semibold transition-colors ${activeTab === 'dashboard' ? 'bg-white dark:bg-black shadow-sm text-black dark:text-white' : 'text-gray-500 hover:text-black dark:hover:text-white'}`}
+                >
+                  Dashboard
+                </button>
+                <button 
+                  onClick={() => setActiveTab('gear')}
+                  className={`px-6 py-2 rounded-full text-sm font-semibold transition-colors ${activeTab === 'gear' ? 'bg-white dark:bg-black shadow-sm text-black dark:text-white' : 'text-gray-500 hover:text-black dark:hover:text-white'}`}
+                >
+                  Trainer's Kit
+                </button>
+              </div>
             </div>
+
+            {activeTab === 'dashboard' ? (
+              <>
 
             {/* The Science Section */}
             <div className="bg-white dark:bg-[#1d1d1f] rounded-3xl p-8 md:p-10 shadow-sm ring-1 ring-gray-900/5 dark:ring-white/5 relative overflow-hidden mb-12">
@@ -213,13 +235,13 @@ export default function BellyFatBuster() {
                   </p>
                 </div>
                 <div className="text-xs font-medium uppercase tracking-wider text-gray-500 group-hover:text-white transition-colors flex items-center">
-                  Learn more <ChevronRight size={14} className="ml-1" />
+                  Learn more about pelvic tilt <ChevronRight size={14} className="ml-1" />
                 </div>
               </div>
             </div>
 
             {/* 4. Pro Upgrade Section */}
-            {!isPro && (
+            {(!isPro && hasCompletedSession) && (
               <section className="mt-16 bg-gradient-to-br from-gray-900 to-black rounded-3xl p-8 md:p-12 text-white shadow-xl relative overflow-hidden">
                 <div className="absolute -right-20 -top-20 w-64 h-64 bg-green-500/10 blur-3xl rounded-full pointer-events-none"></div>
                 
@@ -245,7 +267,9 @@ export default function BellyFatBuster() {
                 </div>
               </section>
             )}
-
+            </>
+            ) : (
+            <>
             {/* 5. Trainer's Kit Section */}
             <section className="mt-16">
               <div className="flex items-center justify-between mb-6">
@@ -298,6 +322,8 @@ export default function BellyFatBuster() {
 
               </div>
             </section>
+            </>
+            )}
 
           </div>
         ) : (

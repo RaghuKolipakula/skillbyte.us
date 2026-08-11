@@ -31,8 +31,11 @@ export const HallucinationEngine = () => {
             <h1 className="text-3xl md:text-5xl font-bold tracking-tighter mb-6">
               The Reality Renderer
             </h1>
-            <p className="text-lg md:text-xl text-gray-600 mb-12 font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-600 mb-6 font-light leading-relaxed">
               We are going to prove, instantly and undeniably, that the reality you are experiencing right now is a hallucination rendered by your brain.
+            </p>
+            <p className="text-sm text-gray-500 mb-12 font-light">
+              (Note: This requires staring at a still image for a few moments. There are no flashing lights or strobing effects.)
             </p>
             
             <button 
