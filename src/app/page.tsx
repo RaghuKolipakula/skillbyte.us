@@ -212,6 +212,18 @@ export default function Home() {
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">A cognitive recalibrator that mathematically visualizes the insignificance of modern anxiety.</p>
               </Link>
 
+              {/* The Absolute Scale Card */}
+              <Link href="/app/absolute-scale" className="group flex flex-col bg-white dark:bg-[#1c1c1e] p-6 rounded-[2rem] hover:scale-105 transition-transform shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-800">
+                <div className="w-16 h-16 bg-gradient-to-br from-gray-900 to-black rounded-2xl mb-4 flex items-center justify-center relative overflow-hidden shadow-inner border border-gray-700">
+                  <div className="absolute inset-0 bg-white/5" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}></div>
+                  <div className="w-8 h-8 relative flex items-center justify-center z-10">
+                    <div className="text-white/80 font-mono font-bold text-xl">$</div>
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">The Absolute Scale</h4>
+                <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">A stark, cinematic visualization of extreme wealth inequality and the value of time.</p>
+              </Link>
+
             </div>
           </div>
 
