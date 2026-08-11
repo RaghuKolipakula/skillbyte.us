@@ -289,6 +289,19 @@ export default function Home() {
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Extreme impulse inhibition. Hold absolute stillness within a shrinking boundary.</p>
               </Link>
 
+              {/* The Void Engine Card */}
+              <Link href="/app/void" className="group flex flex-col bg-black p-6 rounded-[2rem] hover:scale-105 transition-transform shadow-sm hover:shadow-xl border border-gray-800">
+                <div className="w-16 h-16 bg-black border-2 border-white/20 rounded-2xl mb-4 flex items-center justify-center relative overflow-hidden shadow-inner">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full border border-white/10 opacity-50"></div>
+                    <div className="w-4 h-4 rounded-full border border-white/20 absolute opacity-75"></div>
+                    <div className="w-1 h-1 bg-white absolute"></div>
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold text-white mb-1 tracking-tight">The Void Engine</h4>
+                <p className="text-sm text-gray-400 line-clamp-2">A sensory-deprivation reaction test. Survive entirely on spatial audio.</p>
+              </Link>
+
             </div>
           </div>
 
