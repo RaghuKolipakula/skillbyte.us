@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import { AbsoluteScaleEngine } from '@/components/AbsoluteScaleEngine';
 import Link from 'next/link';
