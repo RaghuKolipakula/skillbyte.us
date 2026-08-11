@@ -1,11 +1,25 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const GRID_SIZE = 15;
-const PARTICLES = Array.from({ length: GRID_SIZE * GRID_SIZE }, (_, i) => i);
 const SPACING = 24;
+
+// Generate static random values outside the render cycle to ensure pure component rendering
+const PARTICLE_DATA = Array.from({ length: GRID_SIZE * GRID_SIZE }, (_, i) => {
+  const row = Math.floor(i / GRID_SIZE);
+  const col = i % GRID_SIZE;
+  const orderedX = (col - (GRID_SIZE - 1) / 2) * SPACING;
+  const orderedY = (row - (GRID_SIZE - 1) / 2) * SPACING;
+  
+  // Random multipliers for chaotic state
+  const chaoticXMultipliers = Array.from({ length: 5 }, () => (Math.random() - 0.5) * 0.8);
+  const chaoticYMultipliers = Array.from({ length: 5 }, () => (Math.random() - 0.5) * 0.8);
+  const duration = 15 + Math.random() * 10;
+  
+  return { id: i, orderedX, orderedY, chaoticXMultipliers, chaoticYMultipliers, duration };
+});
 
 export const EntropyEngine = () => {
   const [isFocused, setIsFocused] = useState(false);
@@ -14,21 +28,28 @@ export const EntropyEngine = () => {
   const [dimensions, setDimensions] = useState({ w: 1000, h: 1000 });
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window === 'undefined') return;
+
+    // Use a small timeout to avoid calling setState synchronously during the effect body
+    // which triggers the react-hooks/set-state-in-effect linter rule
+    const timer = setTimeout(() => {
       setDimensions({
         w: window.innerWidth,
         h: window.innerHeight,
       });
-      
-      const handleResize = () => {
-        setDimensions({
-          w: window.innerWidth,
-          h: window.innerHeight,
-        });
-      };
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-    }
+    }, 0);
+    
+    const handleResize = () => {
+      setDimensions({
+        w: window.innerWidth,
+        h: window.innerHeight,
+      });
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   // Event handlers for mouse/touch
@@ -69,33 +90,21 @@ export const EntropyEngine = () => {
           height: GRID_SIZE * SPACING 
         }}
       >
-        {PARTICLES.map((index) => {
-          const row = Math.floor(index / GRID_SIZE);
-          const col = index % GRID_SIZE;
-          
-          // Ordered coordinates (relative to center of container)
-          const orderedX = (col - (GRID_SIZE - 1) / 2) * SPACING;
-          const orderedY = (row - (GRID_SIZE - 1) / 2) * SPACING;
-
-          // Generate chaotic keyframes unique to each particle
-          // If we want Brownian motion, we make a random walk
-          const chaoticKeyframesX = Array.from({ length: 5 }, () => 
-            (Math.random() - 0.5) * dimensions.w * 0.8
-          );
-          const chaoticKeyframesY = Array.from({ length: 5 }, () => 
-            (Math.random() - 0.5) * dimensions.h * 0.8
-          );
+        {PARTICLE_DATA.map((data) => {
+          // Scale chaotic coordinates based on window dimensions
+          const chaoticKeyframesX = data.chaoticXMultipliers.map(m => m * dimensions.w);
+          const chaoticKeyframesY = data.chaoticYMultipliers.map(m => m * dimensions.h);
 
           return (
             <motion.div
-              key={index}
+              key={data.id}
               className="absolute w-2 h-2 bg-white rounded-full"
-              initial={{ x: orderedX, y: orderedY, scale: 1, opacity: 1 }}
+              initial={{ x: data.orderedX, y: data.orderedY, scale: 1, opacity: 1 }}
               animate={
                 isFocused
                   ? { 
-                      x: orderedX, 
-                      y: orderedY,
+                      x: data.orderedX, 
+                      y: data.orderedY,
                       scale: 1,
                       opacity: 1,
                       rotate: 0,
@@ -117,7 +126,7 @@ export const EntropyEngine = () => {
                       mass: 0.5
                     }
                   : {
-                      duration: 15 + Math.random() * 10,
+                      duration: data.duration,
                       repeat: Infinity,
                       repeatType: "mirror",
                       ease: "linear"

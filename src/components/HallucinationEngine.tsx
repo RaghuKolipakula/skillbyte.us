@@ -107,10 +107,10 @@ export const HallucinationEngine = () => {
               The Void
             </h2>
             <p className="text-lg md:text-xl text-gray-700 mb-6 font-light leading-relaxed">
-              When the circle vanished, you didn't see a black hole. You saw pure white space. 
+              When the circle vanished, you didn&apos;t see a black hole. You saw pure white space. 
             </p>
             <p className="text-lg md:text-xl text-gray-700 mb-12 font-light leading-relaxed">
-              Because your optic nerve has no photoreceptors, there is a massive void in your visual field. Your brain’s neural network panicked and <strong>hallucinated</strong> the background to fill the gap.
+              Because your optic nerve has no photoreceptors, there is a massive void in your visual field. Your brain&apos;s neural network panicked and <strong>hallucinated</strong> the background to fill the gap.
             </p>
             
             <div className="p-8 bg-gray-50 rounded-3xl border border-gray-200 mb-12 shadow-sm">
