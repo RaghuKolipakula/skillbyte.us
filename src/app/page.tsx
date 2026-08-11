@@ -146,6 +146,16 @@ export default function Home() {
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Measure and expand your physiological panic threshold. A brutal test of CO2 tolerance.</p>
               </Link>
 
+              {/* Homeostasis Engine Card */}
+              <Link href="/app/homeostasis" className="group flex flex-col bg-black p-6 rounded-[2rem] hover:scale-105 transition-transform shadow-sm hover:shadow-xl border border-gray-800">
+                <div className="w-16 h-16 bg-black border-2 border-white/20 rounded-2xl mb-4 flex items-center justify-center relative overflow-hidden shadow-inner">
+                  <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center z-10">
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold text-white mb-1 tracking-tight">Homeostasis Engine</h4>
+                <p className="text-sm text-gray-400 line-clamp-2">Gamified metabolic simulation. You are the pancreas. Survive the glucose spike.</p>
+              </Link>
+
             </div>
           </div>
 
