@@ -57,7 +57,7 @@ export function StillnessEngine() {
           const ledger = JSON.parse(localStorage.getItem('identity_ledger') || '{}');
           ledger['proof_of_stillness'] = new Date().toISOString();
           localStorage.setItem('identity_ledger', JSON.stringify(ledger));
-        } catch (_e) {
+        } catch {
           // Ignore local storage errors
         }
         return;

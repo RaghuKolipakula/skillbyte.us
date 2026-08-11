@@ -16,10 +16,12 @@ import {
   Play
 } from 'lucide-react';
 import { BellyFatEngine } from '@/components/BellyFatEngine';
+import { ProtocolGuideModal } from '@/components/ProtocolGuideModal';
 
 export default function BellyFatBuster() {
 
   const [isWorkoutActive, setIsWorkoutActive] = useState(false);
+  const [isGuideOpen, setIsGuideOpen] = useState(false);
   const [isPro, setIsPro] = useState(false);
   const currentStreak = 4; // Mocked for UI, could fetch from useLedger if needed
 
@@ -45,6 +47,12 @@ export default function BellyFatBuster() {
           </div>
           
           <div className="flex items-center space-x-6">
+            <button 
+              onClick={() => setIsGuideOpen(true)}
+              className="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors"
+            >
+              <Info size={16} />
+            </button>
             <div className="flex items-center space-x-1.5 bg-orange-500/10 dark:bg-orange-500/20 px-3 py-1 rounded-full">
               <Flame size={16} className="text-orange-500" />
               <span className="text-sm font-bold text-orange-600 dark:text-orange-400">{currentStreak}</span>
@@ -309,6 +317,19 @@ export default function BellyFatBuster() {
           to { opacity: 1; transform: translateY(0); }
         }
       `}} />
+
+      <ProtocolGuideModal 
+        isOpen={isGuideOpen}
+        onClose={() => setIsGuideOpen(false)}
+        title="Belly Fat Buster"
+        description="A 5-minute deep core circuit designed to activate your Transverse Abdominis and correct the 'Desk-Worker Pooch'."
+        steps={[
+          { title: "Preparation", description: "Clear some space on the floor and hit 'Start Workout'." },
+          { title: "The Circuit", description: "Follow the visual guide on the screen. The engine will automatically cycle through 5 distinct core stabilization movements." },
+          { title: "The Execution", description: "Keep your lower back glued to the floor during all movements. The goal is tension, not speed." },
+          { title: "The Completion", description: "The session ends automatically after 5 minutes and logs to your Ledger." }
+        ]}
+      />
     </div>
   );
 }

@@ -14,10 +14,13 @@ import {
   Zap,
   CheckCircle2,
   AlertTriangle,
-  Activity
+  Activity,
+  Info
 } from 'lucide-react';
+import { ProtocolGuideModal } from '@/components/ProtocolGuideModal';
 
 export default function MechanicsLab() {
+  const [isGuideOpen, setIsGuideOpen] = useState(false);
   const [unlockedStage, setUnlockedStage] = useState<number>(1);
   const [isPro, setIsPro] = useState<boolean>(false);
   
@@ -87,6 +90,12 @@ export default function MechanicsLab() {
           </div>
           
           <div className="flex items-center space-x-4">
+            <button 
+              onClick={() => setIsGuideOpen(true)}
+              className="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-white/20 transition-colors"
+            >
+              <Info size={16} />
+            </button>
             <div className="flex items-center space-x-1.5 bg-blue-500/10 dark:bg-blue-500/20 px-3 py-1 rounded-full">
               <Lightbulb size={16} className="text-blue-600 dark:text-blue-400" />
               <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">
@@ -472,6 +481,19 @@ export default function MechanicsLab() {
           to { opacity: 1; transform: scale(1); }
         }
       `}} />
+
+      <ProtocolGuideModal 
+        isOpen={isGuideOpen}
+        onClose={() => setIsGuideOpen(false)}
+        title="Mechanics Lab"
+        description="An interactive discovery engine that teaches the fundamental physics of Mechanical Advantage through progressive experimentation."
+        steps={[
+          { title: "Stage 1: The Lever", description: "Click along the beam to adjust the length of the lever. Notice how the 'Effort Force' changes as the lever gets longer." },
+          { title: "Stage 2: The Ratio", description: "Drag the fulcrum point along the track until the beam perfectly balances a 10kg weight using only 1kg of effort." },
+          { title: "Stage 3: The Engineer", description: "Build a compound machine capable of lifting a 500kg engine block. You must slot the components in the correct mechanical sequence." },
+          { title: "Stage 4: Pro Sandbox", description: "A locked environment for advanced physical simulations, available to Pro users." }
+        ]}
+      />
     </div>
   );
 }

@@ -1,11 +1,14 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, BrainCircuit } from 'lucide-react';
+import { ArrowLeft, BrainCircuit, Info } from 'lucide-react';
 import { EpochEngine } from '@/components/EpochEngine';
+import { ProtocolGuideModal } from '@/components/ProtocolGuideModal';
 
 export default function EpochEnginePage() {
+  const [isGuideOpen, setIsGuideOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-black text-white font-sans selection:bg-white/30 overflow-hidden">
       
@@ -15,9 +18,17 @@ export default function EpochEnginePage() {
           <ArrowLeft size={20} />
           <span className="font-semibold tracking-tight">SkillByte</span>
         </Link>
-        <div className="font-mono text-sm tracking-widest uppercase opacity-70 flex items-center">
-          <BrainCircuit size={16} className="mr-2" />
-          Epoch Engine
+        <div className="flex items-center space-x-4">
+          <div className="font-mono text-sm tracking-widest uppercase opacity-70 flex items-center">
+            <BrainCircuit size={16} className="mr-2" />
+            Epoch Engine
+          </div>
+          <button 
+            onClick={() => setIsGuideOpen(true)}
+            className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+          >
+            <Info size={16} />
+          </button>
         </div>
       </nav>
 
@@ -25,6 +36,18 @@ export default function EpochEnginePage() {
       <main className="min-h-screen w-full flex flex-col items-center justify-center pt-24 pb-12">
         <EpochEngine />
       </main>
+
+      <ProtocolGuideModal 
+        isOpen={isGuideOpen}
+        onClose={() => setIsGuideOpen(false)}
+        title="Epoch Engine"
+        description="A cognitive training loop that forces you to identify your own mental heuristics and biases in real-time."
+        steps={[
+          { title: "The Scenarios", description: "You will be presented with an infinite loop of rapidly changing, high-stakes scenarios." },
+          { title: "System 1 vs System 2", description: "Your immediate gut reaction is 'System 1'. You must inhibit this impulse and use 'System 2' to calculate the mathematically or logically correct choice." },
+          { title: "The Choices", description: "Select the option that bypasses the stated cognitive bias. Review your accuracy at the end of a 5-scenario set." }
+        ]}
+      />
     </div>
   );
 }
