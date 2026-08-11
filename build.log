@@ -1,0 +1,5 @@
+
+> skillbyte-us@0.1.0 build:worker
+> opennextjs-cloudflare build
+
+sh: opennextjs-cloudflare: command not found
