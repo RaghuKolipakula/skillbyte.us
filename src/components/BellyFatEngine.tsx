@@ -31,20 +31,25 @@ export function BellyFatEngine({ onComplete, autoStart = false, hideControls = f
 
   // Timer logic
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isActive && !isPaused && timeLeft > 0) {
+    let interval: NodeJS.Timeout | null = null;
+    if (isActive && !isPaused) {
       interval = setInterval(() => {
-        setTimeLeft((prev) => prev - 1);
+        setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
       }, 1000);
-    } else if (timeLeft === 0 && isActive) {
-      setTimeout(() => {
-        setIsActive(false);
-        addBellyFatWorkout();
-        if (onComplete) onComplete();
-      }, 0);
     }
-    return () => clearInterval(interval);
-  }, [isActive, isPaused, timeLeft, addBellyFatWorkout, onComplete]);
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isActive, isPaused]);
+
+  // Handle completion
+  useEffect(() => {
+    if (isActive && timeLeft === 0) {
+      setIsActive(false);
+      addBellyFatWorkout();
+      if (onComplete) onComplete();
+    }
+  }, [timeLeft, isActive, addBellyFatWorkout, onComplete]);
 
   const formatTime = (seconds: number) => {
     const m = Math.floor(seconds / 60);

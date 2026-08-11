@@ -18,21 +18,26 @@ export function ResonanceEngine({ onComplete, autoStart = false, hideControls = 
   
   // Timer countdown
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isActive && timeLeft > 0) {
+    let interval: NodeJS.Timeout | null = null;
+    if (isActive) {
       interval = setInterval(() => {
-        setTimeLeft((prev) => prev - 1);
+        setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
       }, 1000);
-    } else if (timeLeft === 0 && isActive) {
-      setTimeout(() => {
-        setIsActive(false);
-        setPhase('exhale');
-        addResonanceSession();
-        if (onComplete) onComplete();
-      }, 0);
     }
-    return () => clearInterval(interval);
-  }, [isActive, timeLeft, addResonanceSession, onComplete]);
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isActive]);
+
+  // Handle completion
+  useEffect(() => {
+    if (isActive && timeLeft === 0) {
+      setIsActive(false);
+      setPhase('exhale');
+      addResonanceSession();
+      if (onComplete) onComplete();
+    }
+  }, [timeLeft, isActive, addResonanceSession, onComplete]);
 
   // Breathing cycle logic (5.5s inhale, 5.5s exhale)
   useEffect(() => {
@@ -69,7 +74,7 @@ export function ResonanceEngine({ onComplete, autoStart = false, hideControls = 
     <div className="w-full flex flex-col items-center justify-center relative">
       {/* Intro text fades out when active */}
       {!hideControls && (
-        <div className={`absolute top-0 text-center transition-opacity duration-1000 z-10 ${isActive ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+        <div className={`absolute top-0 w-full text-center transition-opacity duration-1000 z-10 pointer-events-none ${isActive ? 'opacity-0' : 'opacity-100'}`}>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-4">
             The Oxygen Quotient.
           </h1>
@@ -124,7 +129,7 @@ export function ResonanceEngine({ onComplete, autoStart = false, hideControls = 
       </div>
 
       {/* Controls */}
-      <div className="absolute bottom-[-100px] flex flex-col items-center z-10">
+      <div className="mt-8 flex flex-col items-center z-10 pb-8">
         <div className={`font-mono text-xl tracking-widest mb-8 transition-opacity duration-1000 ${isActive || hideControls ? 'opacity-100' : 'opacity-0'}`}>
           {formatTime(timeLeft)}
         </div>

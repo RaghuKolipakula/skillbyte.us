@@ -21,31 +21,34 @@ export function ChronoEngine({ onComplete, autoStart = false, hideControls = fal
 
   // Timer logic for active phases
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if ((phase === 'compression' || phase === 'dilation') && timeLeft > 0) {
+    let interval: NodeJS.Timeout | null = null;
+    if (phase === 'compression' || phase === 'dilation') {
       interval = setInterval(() => {
-        setTimeLeft((prev) => prev - 1);
+        setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
       }, 1000);
-    } else if (timeLeft === 0) {
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [phase]);
+
+  // Handle completion
+  useEffect(() => {
+    if (timeLeft === 0) {
       if (phase === 'compression') {
-        setTimeout(() => {
-          if (hideControls) {
-            addChronoScore(clicks);
-            if (onComplete) onComplete();
-          } else {
-            setPhase('dilation');
-            setTimeLeft(30);
-          }
-        }, 0);
-      } else if (phase === 'dilation') {
-        setTimeout(() => {
-          setPhase('results');
+        if (hideControls) {
           addChronoScore(clicks);
-        }, 0);
+          if (onComplete) onComplete();
+        } else {
+          setPhase('dilation');
+          setTimeLeft(30);
+        }
+      } else if (phase === 'dilation') {
+        setPhase('results');
+        addChronoScore(clicks);
       }
     }
-    return () => clearInterval(interval);
-  }, [phase, timeLeft, clicks, addChronoScore, hideControls, onComplete]);
+  }, [timeLeft, phase, clicks, addChronoScore, hideControls, onComplete]);
 
   // Target movement for Compression phase
   useEffect(() => {
