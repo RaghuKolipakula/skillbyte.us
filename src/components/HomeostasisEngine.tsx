@@ -28,7 +28,7 @@ export const HomeostasisEngine = () => {
   const lastTickRef = useRef<number>(0);
   const reqRef = useRef<number>(0);
 
-  const gameLoop = useCallback((timestamp: number) => {
+  const gameLoop = useCallback(function loop(timestamp: number) {
     if (stateRef.current !== 'playing') return;
 
     const deltaMs = timestamp - lastTickRef.current;
@@ -76,7 +76,7 @@ export const HomeostasisEngine = () => {
       setTimeLeft(timeRef.current);
     }
 
-    reqRef.current = requestAnimationFrame(gameLoop);
+    reqRef.current = requestAnimationFrame(loop);
   }, []);
 
   const startGame = () => {
