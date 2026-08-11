@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, TargetAndTransition } from 'framer-motion';
 
 type GameState = 'setup' | 'playing' | 'hyperglycemia' | 'hypoglycemia' | 'victory';
 
@@ -113,7 +113,7 @@ export const HomeostasisEngine = () => {
   };
 
   // Determine Visual State of the Cell
-  const getCellVisuals = () => {
+  const getCellVisuals = (): TargetAndTransition => {
     if (glucose < 70) {
       return {
         backgroundColor: "#3b82f6", // blue-500
