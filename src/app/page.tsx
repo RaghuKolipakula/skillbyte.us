@@ -198,6 +198,19 @@ export default function Home() {
                 <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Epoch Engine</h4>
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Probability is simple. The ego is complex. Overcome cognitive bias by steel-manning.</p>
               </Link>
+              {/* Perspective Engine Card */}
+              <Link href="/app/perspective" className="group flex flex-col bg-white dark:bg-[#1c1c1e] p-6 rounded-[2rem] hover:scale-105 transition-transform shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-800">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-black rounded-2xl mb-4 flex items-center justify-center relative overflow-hidden shadow-inner border border-gray-800">
+                  <div className="absolute inset-0 bg-white/5" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}></div>
+                  <div className="w-8 h-8 relative flex items-center justify-center z-10">
+                    <div className="w-8 h-8 border-[1.5px] border-white/40 rounded-full absolute"></div>
+                    <div className="w-4 h-4 border-[1.5px] border-white/60 rounded-full absolute"></div>
+                    <div className="w-1 h-1 bg-white rounded-full absolute"></div>
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Perspective Engine</h4>
+                <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">A cognitive recalibrator that mathematically visualizes the insignificance of modern anxiety.</p>
+              </Link>
 
             </div>
           </div>
