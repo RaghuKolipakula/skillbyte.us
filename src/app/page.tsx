@@ -224,6 +224,21 @@ export default function Home() {
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">A stark, cinematic visualization of extreme wealth inequality and the value of time.</p>
               </Link>
 
+              {/* The Hallucination Engine Card */}
+              <Link href="/app/hallucination" className="group flex flex-col bg-white dark:bg-[#1c1c1e] p-6 rounded-[2rem] hover:scale-105 transition-transform shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-800">
+                <div className="w-16 h-16 bg-white border-2 border-black rounded-2xl mb-4 flex items-center justify-center relative overflow-hidden shadow-sm">
+                  <div className="w-10 h-10 flex justify-between items-center">
+                    <div className="w-4 h-4 flex items-center justify-center relative">
+                      <div className="w-3 h-[2px] bg-black absolute"></div>
+                      <div className="w-[2px] h-3 bg-black absolute"></div>
+                    </div>
+                    <div className="w-4 h-4 bg-black rounded-full"></div>
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Hallucination Engine</h4>
+                <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">A biological proof that your reality is actively rendered and faked by your brain.</p>
+              </Link>
+
             </div>
           </div>
 
