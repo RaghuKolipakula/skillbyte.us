@@ -7,6 +7,7 @@ export interface LedgerState {
   chronoScores: number[];
   bellyFatWorkouts: number;
   nBackMaxLevel: number;
+  compoundingSimulations: number;
   lastActiveDate: string | null;
   currentStreak: number;
 }
@@ -16,6 +17,7 @@ const DEFAULT_STATE: LedgerState = {
   chronoScores: [],
   bellyFatWorkouts: 0,
   nBackMaxLevel: 1,
+  compoundingSimulations: 0,
   lastActiveDate: null,
   currentStreak: 0,
 };
@@ -32,7 +34,8 @@ export function useLedger() {
       try {
         const stored = localStorage.getItem(LEDGER_KEY);
         if (stored) {
-          setLedger(JSON.parse(stored));
+          const parsed = JSON.parse(stored);
+          setLedger({ ...DEFAULT_STATE, ...parsed });
         }
       } catch (e) {
         console.error("Failed to parse Identity Ledger", e);
@@ -106,6 +109,14 @@ export function useLedger() {
     });
   }, []);
 
+  const addCompoundingSimulation = React.useCallback(() => {
+    setLedger((prev) => {
+      const newState = { compoundingSimulations: (prev.compoundingSimulations || 0) + 1 };
+      saveLedger(newState);
+      return { ...prev, ...newState };
+    });
+  }, []);
+
   return {
     ledger, // Keep original ledger object for backward compatibility
     ...ledger, // Spread properties so things like currentStreak can be directly destructured
@@ -113,6 +124,7 @@ export function useLedger() {
     addResonanceSession,
     addChronoScore,
     addBellyFatWorkout,
-    updateNBackMaxLevel
+    updateNBackMaxLevel,
+    addCompoundingSimulation
   };
 }

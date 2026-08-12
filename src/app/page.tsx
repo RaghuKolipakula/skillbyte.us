@@ -121,6 +121,20 @@ export default function Home() {
                 <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Functional core-training sequence designed to build a strong foundation with zero equipment.</p>
               </Link>
 
+              {/* Compounding Card */}
+              <Link href="/app/compounding" className="group flex flex-col bg-white dark:bg-[#1c1c1e] p-6 rounded-[2rem] hover:scale-105 transition-transform shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-800">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl mb-4 flex items-center justify-center relative overflow-hidden shadow-inner">
+                  <div className="absolute inset-0 bg-white/10" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}></div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="z-10">
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                    <polyline points="16 7 22 7 22 13"></polyline>
+                  </svg>
+                </div>
+                <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Exponential Illusion</h4>
+                <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">1 Min · Low</span></div>
+                <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">A visceral sandbox to understand compounding growth. Stop thinking linearly.</p>
+              </Link>
+
               {/* Resonance Card */}
               <Link href="/app/resonance" className="group flex flex-col bg-white dark:bg-[#1c1c1e] p-6 rounded-[2rem] hover:scale-105 transition-transform shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-800">
                 <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl mb-4 flex items-center justify-center relative overflow-hidden shadow-inner">
@@ -324,6 +338,33 @@ export default function Home() {
                 <h4 className="text-lg font-bold text-white mb-1 tracking-tight">The Void Engine</h4>
                 <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">2 Min · Intense</span></div>
                 <p className="text-sm text-gray-400 line-clamp-2">A sensory-deprivation reaction test. Survive entirely on spatial audio.</p>
+              </Link>
+
+            </div>
+          </div>
+
+          {/* Category: Fun */}
+          <div id="fun" className="mb-20">
+            <h3 className="text-xl font-bold tracking-tight text-black dark:text-white mb-6 border-b border-gray-200 dark:border-gray-800 pb-2">
+              Fun
+            </h3>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              
+              {/* Do Not Push Card */}
+              <Link href="/app/do-not-push" className="group flex flex-col bg-white dark:bg-[#1c1c1e] p-6 rounded-[2rem] hover:scale-105 transition-transform shadow-sm hover:shadow-xl border border-gray-100 dark:border-gray-800">
+                <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-800 rounded-2xl mb-4 flex items-center justify-center relative overflow-hidden shadow-inner">
+                  <div className="absolute inset-0 bg-white/10" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 50%)' }}></div>
+                  <div className="w-8 h-8 relative flex items-center justify-center z-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <circle cx="12" cy="12" r="4"></circle>
+                    </svg>
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold text-black dark:text-white mb-1 tracking-tight">Do Not Push</h4>
+                <div className="mb-2"><span className="inline-block text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-gray-100 dark:bg-white/10 dark:text-gray-400 px-2 py-0.5 rounded">Danger · Do Not Click</span></div>
+                <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">Whatever you do, do not push the red button. We are serious.</p>
               </Link>
 
             </div>
